@@ -7,6 +7,12 @@
 
 # Use instructions
 
+## Front end
+
+* Open index.html in your updated browser
+
+## Backend
+
 * Build docker file
     * docker build . -t agile_course_election
 
