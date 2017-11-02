@@ -17,4 +17,5 @@ if __name__ == '__main__':
 
         upload_file(sys.argv[1], sys.argv[2], path=path)
     except Exception:
-        print("Usage: \ns3upload file bucket [path]")
+        print(sys.exc_info()[2])
+        print("Usage: \npython s3upload.py file bucket [path]")
