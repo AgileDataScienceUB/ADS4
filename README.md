@@ -19,4 +19,4 @@
 
 * Upload dataset
   
-    * python <file_name> $BUCKET_NAME
+    * python s3upload.py <file_name> <BUCKET_NAME> 
