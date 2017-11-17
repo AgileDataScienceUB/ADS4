@@ -1,6 +1,10 @@
 # ADS4
 
-## Projecte dependencies:
+# Employee retention
+Uncover the factors that lead to employee to leave the company.
+
+
+## Project dependencies:
 
 * Docker
   * [Docker installation guide](https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/#install-docker-ce)
