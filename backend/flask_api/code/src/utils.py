@@ -1,5 +1,4 @@
 import pymongo
-from git import Repo
 import logging
 
 

@@ -10,13 +10,13 @@ from utils import Utils
 
 # Flask init
 application = Flask(__name__)
-application.logger.info("Application.py init")
+application.logger.info("application.py init")
 
 
 with application.app_context():
     application.iniconfig = FlaskIni()
     application.iniconfig.read(os.environ['APP_SETTINGS'])
-    application.logger.info("Loading APP Settings")
+    application.logger.info("Loading application settings")
 
 
 @application.route('/', methods=['GET'])
@@ -27,4 +27,4 @@ def hello_world():
 
 if __name__ == '__main__':
     application.debug = True
-    application.run(host='0.0.0.0', port=4000)
+    application.run(host='0.0.0.0', port=3031)

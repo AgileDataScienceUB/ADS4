@@ -1,34 +1,42 @@
 # Run it using: $ docker-compose up
 
 version: "3"
+
 services:
-#  nginx:
-#    restart: always
-#    image: nginx:latest
-#    links:
-#      - apiapp:uwsgi
-#      ports:
-#        - "80:80"
-#      volumes:
-#        - ./backend/nginx/nginx.conf:/etc/nginx/nginx.conf
-#  flask_api:
-#    image: tiangolo/uwsgi-nginx-flask:python3.6
-#    networks:
-#      - ADS4_network
-#    ports:
-#      - 80
-#    volumes:
-#      - ./backend/flask_api:/app
+
+  flask_api:
+    restart: always
+    build: ./backend/flask_api/
+    networks:
+      - ADS4_network
+    ports:
+      - 3031
+    volumes:
+      - ./backend/flask_api:/usr/src/site
+    command: uwsgi --emperor /usr/src/site
+
+  nginx_frontend:
+    restart: always
+    image: nginx:latest
+    networks:
+      - ADS4_network
+    volumes:
+      - ./view/:/www/static
+      - ./backend/nginx/nginx.conf:/etc/nginx/nginx.conf
+    ports:
+      - 80
+    depends_on:
+      - flask_api
+
   mongodb:
+    restart: always
     image: mongo
+    networks:
+      - ADS4_network
     volumes:
       - ./backend/mongodb:/data/db
     ports:
       - 27017
-  frontend:
-    image: ubuntu
-    volumes:
-      - ./view:/home
 
 networks:
   ADS4_network:
