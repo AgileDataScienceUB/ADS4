@@ -3,26 +3,12 @@
 ## Projecte dependencies:
 
 * Docker
+* Docker-compose
 * Updated web browser
 
-# Use instructions
+# Deployment instructions
 
-## Front end
-
-* Open index.html in your updated browser
-
-## Backend
-
-* Build docker file
-    * docker build . -t agile_course_election
-
-* Run docker file
-    * docker run -d -it -v $(pwd):/home agile_course_election
-
-* Get inside docker file
-
-    * docker exec -it $agile_course_election_docker_id bash
-
-* Upload dataset
-  
-    * python s3upload.py <file_name> <BUCKET_NAME> 
+* $ docker-compose up 
+* Then get containers ports using: $docker ps
+* Open you browser using localhost:<container_port>
+* Enjoy :)
