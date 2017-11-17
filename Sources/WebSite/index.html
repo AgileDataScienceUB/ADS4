@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+    <title>Employee Attrition</title>
+    <script src="js/jquery-3.2.1.js"></script>
+    <script src="js/myScript.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  </head>
+  <body>
+    <nav class="light-blue lighten-1" role="navigation">
+      <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Logo</a>
+        <ul class="right hide-on-med-and-down">
+          <li><a href="#">Current user: Eloi</a></li>
+        </ul>
+        <ul id="nav-mobile" class="side-nav">
+          <li><a href="#">Current user: Eloi</a></li>
+        </ul>
+        <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+      </div>
+    </nav>
+    <div class="section no-pad-bot" id="index-banner">
+      <div class="container">
+        <br><br>
+        <h1 class="header center orange-text">Employee Attrition analytics platform</h1>
+        <div class="row center">
+          <h5 class="header col s12 light">Uncover the factors that lead to employee attrition</h5>
+        </div>
+        <div class="row center">
+        </div>
+        <br><br>
+      </div>
+    </div>
+    <div class="container">
+      <div class="section">
+        <div class="row">
+          <div class="col m4">
+            <div class="card medium">
+              <div class="card-image">
+                <img src="http://howtowriteabusinessplan.com/wp-content/uploads/2013/02/Stefano-Cutello.jpg">
+                <span class="card-title">Stefano Cutello</span>
+              </div>
+              <div class="card-content">
+                <p>Software developer, 35000$/year, part of the company for 6 years</p>
+              </div>
+              <div class="card-action">
+                <a id="prediction-cutello-button" class="activator waves-effect waves-light btn">See the prediction</a>
+              </div>
+              <div class="card-reveal">
+                <span class="card-title grey-text text-darken-4">Prediction<i class="material-icons right">close</i></span>
+                <p id="prediction-cutello">loading...</p>
+              </div>
+            </div>
+          </div>
+          <div class="col m4">
+            <div class="card medium">
+              <div class="card-image">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/b/b4/Francesca_Rossi.jpeg">
+                <span class="card-title">Francesca Rossi</span>
+              </div>
+              <div class="card-content">
+                <p>Recruiter, 27000$/year, part of the company for 13 years</p>
+              </div>
+              <div class="card-action">
+                <a id="prediction-rossi-button" class="activator waves-effect waves-light btn">See the prediction</a>
+              </div>
+              <div class="card-reveal">
+                <span class="card-title grey-text text-darken-4">Prediction<i class="material-icons right">close</i></span>
+                <p id="prediction-rossi">loading...</p>
+              </div>
+            </div>
+          </div>
+          <div class="col m4">
+            <div class="card medium">
+              <div class="card-image">
+                <img src="https://i.blogs.es/d074b8/massimo/450_1000.jpg">
+                <span class="card-title">Massimo Marchiori</span>
+              </div>
+              <div class="card-content">
+                <p>Office worker, 19000$/year, part of the company for 8 years</p>
+              </div>
+              <div class="card-action">
+                <a id="prediction-marchiori-button" class="activator waves-effect waves-light btn">See the prediction</a>
+              </div>
+              <div class="card-reveal">
+                <span class="card-title grey-text text-darken-4">Prediction<i class="material-icons right">close</i></span>
+                <p id="prediction-marchiori">loading...</p>
+              </div>
+            </div>
+          </div>
+          <div class="col m4">
+            <div class="card medium">
+              <div class="card-image">
+                <img src="http://ichef.bbci.co.uk/onesport/cps/480/cpsprodpb/DD72/production/_89909665_giampiero_ventura_getty.jpg">
+                <span class="card-title">Giampiero Ventura</span>
+              </div>
+              <div class="card-content">
+                <p>Office worker, 21000$/year, part of the company for 17 years</p>
+              </div>
+              <div class="card-action">
+                <a id="prediction-ventura-button" class="activator waves-effect waves-light btn">See the prediction</a>
+              </div>
+              <div class="card-reveal">
+                <span class="card-title grey-text text-darken-4">Prediction<i class="material-icons right">close</i></span>
+                <p id="prediction-ventura">loading...</p>
+              </div>
+            </div>
+          </div>
+          <div class="col m4">
+            <div class="card medium">
+              <div class="card-image">
+                <img src="http://espresso.repubblica.it/polopoly_fs/1.146016.1500034699!/httpImage/image.jpg_gen/derivatives/articolo_648/image.jpg">
+                <span class="card-title">Renato Brunetta</span>
+              </div>
+              <div class="card-content">
+                <p>CTO, 48000$/year, part of the company for 11 years</p>
+              </div>
+              <div class="card-action">
+                <a id="prediction-brunetta-button" class="activator waves-effect waves-light btn">See the prediction</a>
+              </div>
+              <div class="card-reveal">
+                <span class="card-title grey-text text-darken-4">Prediction<i class="material-icons right">close</i></span>
+                <p id="prediction-brunetta">loading...</p>
+              </div>
+            </div>
+          </div>
+          <div class="col m4">
+              <div class="card medium">
+                <div class="card-image">
+                  <img  src="http://farm8.staticflickr.com/7174/6686176127_dc9cb01e92_o.jpg">
+                  <span class="card-title">Lionel Messi</span>
+                </div>
+                <div class="card-content">
+                  <p>Analyst, 32000$/year, part of the company for 3 years</p>
+                </div>
+                <div class="card-action">
+                  <a id="prediction-messi-button" class="activator waves-effect waves-light btn">See the prediction</a>
+                </div>
+                <div class="card-reveal">
+                  <span class="card-title grey-text text-darken-4">Prediction<i class="material-icons right">close</i></span>
+                  <p id="prediction-messi">loading...</p>
+                </div>
+              </div>
+            </div>
+      </div>
+    </div>
+    <br><br>
+  </div>
+  <footer class="page-footer orange">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">Company Bio</h5>
+          <p class="grey-text text-lighten-4">We are a team of college students working on this project like it's our full time job. Any amount would help support and continue development on this project and is greatly appreciated.</p>
+        </div>
+        <div class="col l3 s12">
+          <h5 class="white-text">Settings</h5>
+          <ul>
+            <li><a class="white-text" href="#!">Link 1</a></li>
+            <li><a class="white-text" href="#!">Link 2</a></li>
+            <li><a class="white-text" href="#!">Link 3</a></li>
+            <li><a class="white-text" href="#!">Link 4</a></li>
+          </ul>
+        </div>
+        <div class="col l3 s12">
+          <h5 class="white-text">Connect</h5>
+          <ul>
+            <li><a class="white-text" href="#!">Link 1</a></li>
+            <li><a class="white-text" href="#!">Link 2</a></li>
+            <li><a class="white-text" href="#!">Link 3</a></li>
+            <li><a class="white-text" href="#!">Link 4</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+      Made by <a class="orange-text text-lighten-3" href="http://materializecss.com">Materialize</a>
+      </div>
+    </div>
+  </footer>
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+  </body>
+</html>
