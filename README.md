@@ -1,6 +1,7 @@
 # ADS4 - Employee retention
 Uncover the factors that lead employees to leave the company.
 
+Check our [Wiki](https://github.com/AgileDataScienceUB/ADS4/wiki)!!
 
 ## Project dependencies:
 
