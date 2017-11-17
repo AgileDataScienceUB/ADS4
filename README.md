@@ -1,5 +1,5 @@
 # ADS4 - Employee retention
-Uncover the factors that lead to employee to leave the company.
+Uncover the factors that lead employees to leave the company.
 
 
 ## Project dependencies:
