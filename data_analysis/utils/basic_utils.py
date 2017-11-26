@@ -26,6 +26,7 @@ def print_full(x, n=None, m=None):
     pd.reset_option('display.max_rows')
     pd.reset_option('display.max_columns')
 
+
 # Check data types
 BOOLEAN_TYPES = (bool, np.bool_)
 DATE_TYPES = (np.datetime64, pd.Timestamp, dt.date)
