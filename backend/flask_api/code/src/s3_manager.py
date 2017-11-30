@@ -30,14 +30,15 @@ def upload_file(filename, bucket, acl="public-read"):
         print("Something Happened:", e)
         return e
     
-def download_file(key, bucket, local_path=None):
+def retrieve_file(key, bucket, local_path=None):
     if local_path is None:
         filename = key.split("/")[-1]
         filename = filename.split("\\")[-1]
         local_path = os.path.abspath(os.sep) + filename
-    s3_resource = get_s3_client()
-    s3_resource.Bucket(bucket).download_file(key, local_path)
-
+    s3_client = get_s3_client()
+    with open(localpath, 'wb') as data:
+        s3_client.download_fileobj(bucket, key, data)
+    
 if __name__ == '__main__':
     try:
         if len(sys.argv) >= 4:
