@@ -10,7 +10,7 @@ services:
     networks:
       - ADS4_network
     ports:
-      - 3031
+      - 3031:3031
     volumes:
       - ./backend/flask_api:/usr/src/site
     command: uwsgi --emperor /usr/src/site
@@ -36,7 +36,7 @@ services:
     volumes:
       - ./backend/mongodb:/data/db
     ports:
-      - 27017
+      - 27017:27017
 
 networks:
   ADS4_network:
