@@ -24,7 +24,7 @@ services:
       - ./view/:/www/static
       - ./backend/nginx/nginx.conf:/etc/nginx/nginx.conf
     ports:
-      - 80
+      - 80:80
     depends_on:
       - flask_api
 
@@ -36,7 +36,7 @@ services:
     volumes:
       - ./backend/mongodb:/data/db
     ports:
-      - 27017:27017
+      - 27017
 
 networks:
   ADS4_network:
