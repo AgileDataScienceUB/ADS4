@@ -1,28 +1,34 @@
-import pymongo
-import logging
+import os
+import pickle
 
+# MOCK FUNCTION
+# This function should upload the given file to S3, saving it
+# with the given filename
+# In this case the function is simply saving the file locally
+def upload_file(file, filename):
+    file.save(filename)
 
-class Utils(object):
-    """
-    Class providing external services instances
-    """
+# MOCK FUNCTION
+# This function should upload the given object to S3, saving it
+# with the given objectname
+# In this case the function is simply saving the object locally
+def upload_object(object, objectname):
+    file = open(objectname, 'w')
+    pickle.dump(object, file)
 
-    def __init__(self, config):
-        self.config = config
+# MOCK FUNCTION
+# This function should download an object with the given objectname
+# from S3 and return it
+# In this case, the function is simply reading the object from
+# the filesystem, where it's saved
+def download_object(objectname):
+    file = open(objectname, 'r')
+    return pickle.load(file)
 
-    def get_db(self, db_name=None):
-        """ Simple function to wrap getting a database connection from the connection pool.
-        Args:
-            db_name: The database name from where we want a connection.
-        Returns:
-            A database instance, if existing.
-        """
-        db = None
-        if db_name is not None:
-            db = db_name
-        else:
-            db = self.config.get('mongo','MONGO_TEST_DB')
-        host = self.config.get('mongo','MONGO_HOST')
-        port = int(self.config.get('mongo','MONGO_PORT'))
-
-        return pymongo.MongoClient(host=host,port=port)[db]
+# MOCK FUNCTION
+# This function should check whether an object with the given
+# objectname exists or not.
+# In this case, the function simply checks whether the file exists
+# in the filesystem
+def object_exists(objectname):
+    return os.path.isfile(objectname)
