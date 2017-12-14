@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
-  <title>Starter Template - Materialize</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>focus2hit</title>
 
   <!-- CSS  -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -11,109 +11,160 @@
   <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 </head>
 <body>
-  <nav class="light-blue lighten-1" role="navigation">
-    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Logo</a>
+  <nav class="white" role="navigation">
+    <div class="nav-wrapper container">
+      <a id="logo-container" href="#" class="light-green-text text-darken-3 brand-logo">focus2hit</a>
       <ul class="right hide-on-med-and-down">
-        <li><a href="#">Current user: Eloi</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">Tell me more</a></li>
+        <li><a href="#">Plans & prices</a></li>
+        <li><a href="login.html">Login</a></li>
       </ul>
 
       <ul id="nav-mobile" class="side-nav">
-        <li><a href="#">Current user: Eloi</a></li>
+        <li><a href="#"></a></li>
       </ul>
       <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
     </div>
   </nav>
-  <div class="section no-pad-bot" id="index-banner">
-    <div class="container">
-      <br><br>
-      <h1 class="header center orange-text">Course election analytics platform</h1>
-      <div class="row center">
-        <h5 class="header col s12 light">Be able to analyze who is going to take each course</h5>
-      </div>
-      <div class="row center">
 
+  <div id="index-banner" class="parallax-container">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <br><br>
+        <h1 class="header center grey-text text-lighten-5">focus2hit</h1>
+        <div class="row center">
+          <h5 class="header col s12 light">Do the best for your employees before they feel too dissatisfied</h5>
+          <div class="section"></div>
+        </div>
+        <!-- Modal Trigger -->
+        <div class="row center">
+          <a class="waves-effect waves-light btn-large pulse red lighten-2 modal-trigger" href="#modal">Save money</a>
+          <!-- Modal Structure -->
+          <div id="modal" class="modal">
+            <div class="section"></div>
+            <h5 class="text-darken-3 green-text">Ups, it looks as if you were not logged...</h5>
+            <div class="modal-content" style="display: inline-block; padding: 20px 20 0px 20;">
+              <div class="row">
+                <form class="col s12">
+                  <div class="row">
+                    <div class="input-field col s12">
+                      <i class="large material-icons prefix icon-black">face</i>
+                      <input class='validate' type='email' name='email' id='email'/>
+                      <label for='email'>Enter your email</label>
+                    </div>
+                  </div>     
+                  <div class='row'>
+                    <div class='input-field col s12'>
+                      <i class="large material-icons prefix left icon-black">fingerprint</i>
+                      <input class='validate' type='password' name='password' id='password'/>
+                      <label for='password'>Enter your password</label>
+                    </div>  
+                    <div class = 'row'>
+                      <label style='float: right;'>
+                        <a class='pink-text' href='#!'><b>Forgot Password?</b></a>
+                      </label>
+                    </div>
+                    <p class = 'center'>
+                      <input type="checkbox" id="remember" />
+                      <label for="remember">Remember me</label>
+                    </p>
+                  </div>
+                  <center>
+                    <div class='row'>
+                      <button type='submit' name='btn_login' class='col s12 btn btn-large waves-effect red lighten-2'>Login</button>
+                    </div>
+                    <a href="createAccount.html">Create account</a>
+                    <div class="section"></div>
+                  </center>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br><br>
       </div>
-      <br><br>
-
     </div>
+    <div class="parallax"><img src="3StockSnap_7OPWOSQFXS.jpg" alt="Unsplashed background img 1"></div>
   </div>
 
-
-  <div class="container">
+  <div class="container center">
+    <h5><class="header col s12 light">Every time your business replaces an employee, it costs 6 to 9 months' salary on average.</h5>
+    <h5><class="header col s12 light">With our help you can try to avoid this costs and made your business thrive quickly.</h5>
     <div class="section">
 
       <!--   Icon Section   -->
       <div class="row">
-        <div class="col s12 m7">
-          <div class="card">
-            <div class="card-image">
-              <img src="images/sample-1.jpg">
-              <span class="card-title">Course A</span>
-            </div>
-            <div class="card-content">
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
-            </div>
-            <div class="card-action">
-              <a href="course.html">See the course</a>
-            </div>
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <!--<h2 class="center brown-text"><i class="material-icons">crop_free</i></h2> -->
+            <h5 class="center text-darken-3 green-text">What is F2H?</h5>
+            <p class="light center">F2H is product based on data science techniques, including machine learning, that will give you back your employees that look more disapointed with their jobs.</p>
+          </div>
+        </div>
+
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <!--<h2 class="center brown-text"><i class="material-icons">face</i></h2> -->
+            <h5 class="center text-darken-3 green-text">How can it help me?</h5>
+            <p class="light center">We want you to never hear about the cost of employee turnover. We will do by predicting whose of your employees look like they want to leave your business in a short-term.</p>
+          </div>
+        </div>
+
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <!--<h2 class="center brown-text"><i class="material-icons">settings</i></h2>-->
+            <h5 class="center text-darken-3 green-text">How does it works?</h5>
+            <p class="light center">You can upload your employees profiles whenever you want and we will return you the probability that they leave and the salary that you should pay them to be competitive.</p>
           </div>
         </div>
       </div>
-
-      <div class="row">
-        <div class="col s12 m7">
-          <div class="card">
-            <div class="card-image">
-              <img src="images/sample-1.jpg">
-              <span class="card-title">Course A</span>
-            </div>
-            <div class="card-content">
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
-            </div>
-            <div class="card-action">
-              <a href="course.html">See the course</a>
-            </div>
-          </div>
-        </div>
-      </div>
-
 
     </div>
-    <br><br>
   </div>
 
-  <footer class="page-footer orange">
+<div class="parallax-container valign-wrapper">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <div class="row center">
+          <h5 class="header col s12 light">Make the most effective personnel decisions for your business</h5>
+        </div>
+      </div>
+    </div>
+    <div class="parallax"><img src="background2.jpg" alt="Unsplashed background img 2"></div>
+  </div>
+
+  <footer class="page-footer green darken-4">
     <div class="container">
       <div class="row">
         <div class="col l6 s12">
-          <h5 class="white-text">Company Bio</h5>
-          <p class="grey-text text-lighten-4">We are a team of college students working on this project like it's our full time job. Any amount would help support and continue development on this project and is greatly appreciated.</p>
+          <h5 class="white-text">Team Bio</h5>
+          <p class="grey-text text-lighten-3">We are a team of master students trying to build a good, useful and multidisciplinar product for Agile Data Science subject.</p>
 
 
         </div>
         <div class="col l3 s12">
-          <h5 class="white-text">Settings</h5>
+          <h5 class="white-text">Know more</h5>
           <ul>
-            <li><a class="white-text" href="#!">Link 1</a></li>
-            <li><a class="white-text" href="#!">Link 2</a></li>
-            <li><a class="white-text" href="#!">Link 3</a></li>
-            <li><a class="white-text" href="#!">Link 4</a></li>
+            <li><a class="white-text" href="#!">See success cases</a></li>
+            <li><a class="white-text" href="#!">Best practices on employee retention</a></li>
+            <li><a class="white-text" href="#!">Try for free</a></li>
           </ul>
         </div>
         <div class="col l3 s12">
           <h5 class="white-text">Connect</h5>
           <ul>
-            <li><a class="white-text" href="#!">Link 1</a></li>
-            <li><a class="white-text" href="#!">Link 2</a></li>
-            <li><a class="white-text" href="#!">Link 3</a></li>
-            <li><a class="white-text" href="#!">Link 4</a></li>
+            <li><a class="white-text" href="#!">Facebook</a></li>
+            <li><a class="white-text" href="#!">Twitter</a></li>
           </ul>
         </div>
       </div>
     </div>
     <div class="footer-copyright">
       <div class="container">
-      Made by <a class="orange-text text-lighten-3" href="http://materializecss.com">Materialize</a>
+      Made by <a class="white-text text-darken-1" href="http://materializecss.com">Materialize</a>
+      <br>
+      Free images from <a class="white-text text-darken-1" href="https://stocksnap.io/">Stocksnap.io</a>
       </div>
     </div>
   </footer>

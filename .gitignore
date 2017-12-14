@@ -1,3 +1,9 @@
+# Atom data
+.DS_Store
+
+#Mongo data
+backend/mongodb/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
