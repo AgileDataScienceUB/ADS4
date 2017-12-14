@@ -40,6 +40,17 @@
         <!-- Modal Trigger -->
         <div class="row center">
           <a class="waves-effect waves-light btn-large pulse red lighten-2 modal-trigger" href="#modal">Save money</a>
+          <form action="/upload" enctype='multipart/form-data'>
+            <div class="file-field input-field">
+              <div class="btn">
+                <span>File</span>
+                <input type="file">
+              </div>
+              <div class="file-path-wrapper">
+                <input class="file-path validate" type="text" placeholder="Upload one or more files">
+              </div>
+            </div>
+          </form>
           <!-- Modal Structure -->
           <div id="modal" class="modal">
             <div class="section"></div>

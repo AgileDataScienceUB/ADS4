@@ -6,13 +6,18 @@ import logging
 import os
 from flask_ini import FlaskIni
 from json import dumps
-from flask import Flask, request, abort, jsonify, make_response
+from flask import Flask, request, abort, jsonify, make_response, redirect, flash, url_for
 from utils import upload_file, upload_object, download_object, object_exists
+from werkzeug.utils import secure_filename
 import pandoras_box
+
+UPLOAD_FOLDER = '/data'
+ALLOWED_EXTENSIONS = ['csv']
 
 # Flask init
 application = Flask(__name__)
 application.logger.info("application.py init")
+application.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 
 with application.app_context():
@@ -20,6 +25,38 @@ with application.app_context():
     application.iniconfig.read(os.environ['APP_SETTINGS'])
     application.logger.info("Loading application settings")
 
+
+def allowed_file(filename):
+    return '.' in filename and \
+           filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+
+@application.route('/upload', methods=['GET', 'POST'])
+def upload():
+    if request.method == 'POST':
+        # check if the post request has the file part
+        if 'file' not in request.files:
+            flash('No file part')
+            return redirect(request.url)
+        file = request.files['file']
+        # if user does not select file, browser also
+        # submit a empty part without filename
+        if file.filename == '':
+            flash('No selected file')
+            return redirect(request.url)
+        if file and allowed_file(file.filename):
+            filename = secure_filename(file.filename)
+            file.save(os.path.join(application.config['UPLOAD_FOLDER'], filename))
+            return redirect(url_for('uploaded_file',
+                                    filename=filename))
+    return '''
+    <!doctype html>
+    <title>Upload new File</title>
+    <h1>Upload new File</h1>
+    <form method=post enctype=multipart/form-data>
+      <p><input type=file name=file>
+         <input type=submit value=Upload>
+    </form>
+    '''
 
 @application.route('/create-predictor', methods=['POST'])
 def create_predictor():
