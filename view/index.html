@@ -10,14 +10,16 @@
   <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 </head>
+<style>
+.input-field {
+     color:black;
+}
+</style>
 <body>
   <nav class="white" role="navigation">
     <div class="nav-wrapper container">
       <a id="logo-container" href="#" class="light-green-text text-darken-3 brand-logo">focus2hit</a>
       <ul class="right hide-on-med-and-down">
-        <li><a href="#">Contact</a></li>
-        <li><a href="#">Tell me more</a></li>
-        <li><a href="#">Plans & prices</a></li>
         <li><a href="login.html">Login</a></li>
       </ul>
 
@@ -40,17 +42,6 @@
         <!-- Modal Trigger -->
         <div class="row center">
           <a class="waves-effect waves-light btn-large pulse red lighten-2 modal-trigger" href="#modal">Save money</a>
-          <form action="/upload" enctype='multipart/form-data'>
-            <div class="file-field input-field">
-              <div class="btn">
-                <span>File</span>
-                <input type="file">
-              </div>
-              <div class="file-path-wrapper">
-                <input class="file-path validate" type="text" placeholder="Upload one or more files">
-              </div>
-            </div>
-          </form>
           <!-- Modal Structure -->
           <div id="modal" class="modal">
             <div class="section"></div>
@@ -64,13 +55,13 @@
                       <input class='validate' type='email' name='email' id='email'/>
                       <label for='email'>Enter your email</label>
                     </div>
-                  </div>     
+                  </div>
                   <div class='row'>
                     <div class='input-field col s12'>
                       <i class="large material-icons prefix left icon-black">fingerprint</i>
                       <input class='validate' type='password' name='password' id='password'/>
                       <label for='password'>Enter your password</label>
-                    </div>  
+                    </div>
                     <div class = 'row'>
                       <label style='float: right;'>
                         <a class='pink-text' href='#!'><b>Forgot Password?</b></a>
@@ -83,7 +74,7 @@
                   </div>
                   <center>
                     <div class='row'>
-                      <button type='submit' name='btn_login' class='col s12 btn btn-large waves-effect red lighten-2'>Login</button>
+                      <button onclick="check(this.form)" type='submit' name='btn_login' class='col s12 btn btn-large waves-effect red lighten-2'>Login</button>
                     </div>
                     <a href="createAccount.html">Create account</a>
                     <div class="section"></div>
@@ -185,6 +176,13 @@
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="js/materialize.js"></script>
   <script src="js/init.js"></script>
-
+  <script language="javascript">
+     function check(form) { /*function to check userid & password*/
+         /*the following code checkes whether the entered userid and password are matching*/
+         if(form.email.value == "eloi@focus2hit.com" && form.password.value == "eloi@focus2hit.com") {
+             window.open('home.html')/*opens the target page while Id & password matches*/
+         }
+     }
+ </script>
   </body>
 </html>

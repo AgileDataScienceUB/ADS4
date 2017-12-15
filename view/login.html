@@ -6,7 +6,6 @@
   <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 </head>
-
 <body>
   <div class="section"></div>
   <main>
@@ -32,7 +31,7 @@
             <div class='row'>
               <div class='input-field col s12'>
                 <i class="large material-icons prefix left">fingerprint</i>
-                <input class='validate' type='password' name='password' id='password' />
+                <input class='validate' type='password'  name='password' id='password' />
                 <label for='password'>Enter your password</label>
               </div>
               <div class = 'row'>
@@ -47,13 +46,12 @@
                 <label for="remember">Remember me</label>
               </p>
               <div class='row'>
-                <button type='submit' name='btn_login' class='col s12 btn btn-large waves-effect red lighten-2'>Login</button>
+                <button onclick="check(this.form)" type='submit' name='btn_login' class='col s12 btn btn-large waves-effect red lighten-2'>Login</button>
               </div>
             </center>
           </form>
         </div>
       </div>
-      <a href="createAccount.html">Create account</a>
     </center>
 
     <div class="section"></div>
@@ -62,7 +60,14 @@
 
   <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
   <script type="text/javascript" src="js/materialize.min.js"></script>
+  <script language="javascript">
+     function check(form) { /*function to check userid & password*/
+         /*the following code checkes whether the entered userid and password are matching*/
+         if(form.email.value == "eloi@focus2hit.com" && form.password.value == "eloi@focus2hit.com") {
+             window.open('home.html')/*opens the target page while Id & password matches*/
+         }
+     }
+ </script>
 </body>
 
 </html>
-
