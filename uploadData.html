@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+
+<html lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<title>focus2hit</title>
+
+		<!-- CSS  -->
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+		<link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+		<link rel="stylesheet" href="css/dropify.min.css">
+	</head>
+	<body>
+		<nav class="white" role="navigation">
+		    <div class="nav-wrapper container">
+		      <a id="logo-container" href="index.html" class="light-green-text text-darken-3 brand-logo">focus2hit</a>
+		      <ul class="right hide-on-med-and-down">
+		        <li><a href="#">Contact</a></li>
+		        <li><a href="#">Tell me more</a></li>
+		        <li><a href="uploadData.html">Predict</a><li>
+		        <li><a href="#">Plans & prices</a></li>
+		        <li><a href="index.html">Logout</a></li>
+		      </ul>
+
+		      <ul id="nav-mobile" class="side-nav">
+		        <li><a href="#"></a></li>
+		      </ul>
+		      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+		    </div>
+  		</nav>
+
+
+  		  <!-- HOME -->
+  		<div class="container">
+			<div class="row center">
+
+				<nav>
+					<div class="nav-wrapper green darken-3">
+						<ul>
+							<li class="active"><a class="white-text" href="uploadData.html">1. Upload your historical data</a></li>
+							<li class="white-text"><a class="white-text" href="predict.html">2. Upload new data to predict employee attrition</a></li>
+						</ul>
+					</div>
+				</nav>
+			</div>
+
+
+			<h4 class="center"> Welcome to the first step of focus2hit!</h4>
+			<p> <br> Before anything else, we need you to upload here your historical data. With this data, we will build for you a predictor model to learn how your employees have behaved in the past. Make sure this data belongs to you and you can use it accordingly to <a href="http://www.agpd.es/portalwebAGPD/canaldocumentacion/informes_juridicos/reglamento_lopd/">LOPD</a>. <br> To make sure your predictor is the best we can build for you, try to add all attributes you can to complete your own data.<br> Don't worry if you don't have all.<br>
+			The optimal attributes needed were:
+			
+			<br>
+			<br>
+			</p>
+		    <form action="/upload" enctype='multipart/form-data'>
+				<div class="file-field input-field">
+					<div class="btn">
+						<span>Add new data</span>
+						<input type="file">
+					</div>
+					<div class="file-path-wrapper">
+						<input class="file-path validate" type="text" placeholder="Upload one or more files">
+					</div>
+				</div>
+			</form>
+		<div class="container"></div>
+		</div>
+
+  <!-- END HOME -->
+
+
+		<footer class="page-footer green darken-4">
+			<div class="container">
+				<div class="row">
+					<div class="col l6 s12">
+						<h5 class="white-text">Team Bio</h5>
+						<p class="grey-text text-lighten-3">We are a team of seven master students trying to build a good, useful and multidisciplinar product for Agile Data Science subject.</p>
+				  	</div>
+
+					<div class="col l3 s12">
+			    		<h5 class="white-text">Know more</h5>
+					    <ul>
+					    	<li><a class="white-text" href="#!">See success cases</a></li>
+					    	<li><a class="white-text" href="#!">Best practices on employee retention</a></li>
+					     	<li><a class="white-text" href="#!">Try for free</a></li>
+					    </ul>
+					</div>
+					<div class="col l3 s12">
+					    <h5 class="white-text">Connect</h5>
+					    <ul>
+					      <li><a class="white-text" href="#!">Facebook</a></li>
+					      <li><a class="white-text" href="#!">Twitter</a></li>
+					    </ul>
+					</div>
+				</div>
+			</div>
+			<div class="footer-copyright">
+				<div class="container">
+					Made by <a class="white-text text-darken-1" href="http://materializecss.com">Materialize</a>
+					<br>
+					Free images from <a class="white-text text-darken-1" href="https://stocksnap.io/">Stocksnap.io</a>
+				</div>
+			</div>
+		</footer>
+
+		<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+		<script type="text/javascript" src="js/materialize.min.js"></script>
+        <script src="js/dropify.min.js"></script>
+        <script src="js/dropify.min.js"></script>
+	</body>
+
+</html>
