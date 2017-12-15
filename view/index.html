@@ -10,16 +10,14 @@
   <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 </head>
-<style>
-.input-field {
-     color:black;
-}
-</style>
 <body>
   <nav class="white" role="navigation">
     <div class="nav-wrapper container">
       <a id="logo-container" href="#" class="light-green-text text-darken-3 brand-logo">focus2hit</a>
       <ul class="right hide-on-med-and-down">
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">Tell me more</a></li>
+        <li><a href="#">Plans & prices</a></li>
         <li><a href="login.html">Login</a></li>
       </ul>
 
@@ -55,13 +53,13 @@
                       <input class='validate' type='email' name='email' id='email'/>
                       <label for='email'>Enter your email</label>
                     </div>
-                  </div>
+                  </div>     
                   <div class='row'>
                     <div class='input-field col s12'>
                       <i class="large material-icons prefix left icon-black">fingerprint</i>
                       <input class='validate' type='password' name='password' id='password'/>
                       <label for='password'>Enter your password</label>
-                    </div>
+                    </div>  
                     <div class = 'row'>
                       <label style='float: right;'>
                         <a class='pink-text' href='#!'><b>Forgot Password?</b></a>
@@ -91,8 +89,10 @@
   </div>
 
   <div class="container center">
-    <h5><class="header col s12 light">Every time your business replaces an employee, it costs 6 to 9 months' salary on average.</h5>
-    <h5><class="header col s12 light">With our help you can try to avoid this costs and made your business thrive quickly.</h5>
+    <div class="card-panel grey lighten-4">
+      <h5 class="center">Every time your business replaces an employee, it costs 6 to 9 months' salary on average</h5>
+    </div>
+
     <div class="section">
 
       <!--   Icon Section   -->
@@ -126,63 +126,68 @@
   </div>
 
 <div class="parallax-container valign-wrapper">
-    <div class="section no-pad-bot">
-      <div class="container">
-        <div class="row center">
-          <h5 class="header col s12 light">Make the most effective personnel decisions for your business</h5>
-        </div>
-      </div>
-    </div>
-    <div class="parallax"><img src="background2.jpg" alt="Unsplashed background img 2"></div>
-  </div>
-
-  <footer class="page-footer green darken-4">
+  <div class="section no-pad-bot">
     <div class="container">
-      <div class="row">
-        <div class="col l6 s12">
-          <h5 class="white-text">Team Bio</h5>
-          <p class="grey-text text-lighten-3">We are a team of master students trying to build a good, useful and multidisciplinar product for Agile Data Science subject.</p>
-
-
-        </div>
-        <div class="col l3 s12">
-          <h5 class="white-text">Know more</h5>
-          <ul>
-            <li><a class="white-text" href="#!">See success cases</a></li>
-            <li><a class="white-text" href="#!">Best practices on employee retention</a></li>
-            <li><a class="white-text" href="#!">Try for free</a></li>
-          </ul>
-        </div>
-        <div class="col l3 s12">
-          <h5 class="white-text">Connect</h5>
-          <ul>
-            <li><a class="white-text" href="#!">Facebook</a></li>
-            <li><a class="white-text" href="#!">Twitter</a></li>
-          </ul>
-        </div>
+      <div class="row center">
+        <h5 class="header col s12 light">Make the most effective personnel decisions for your business</h5>
       </div>
     </div>
-    <div class="footer-copyright">
-      <div class="container">
-      Made by <a class="white-text text-darken-1" href="http://materializecss.com">Materialize</a>
-      <br>
-      Free images from <a class="white-text text-darken-1" href="https://stocksnap.io/">Stocksnap.io</a>
+  </div>
+  <div class="parallax"><img src="background2.jpg" alt="Unsplashed background img 2"></div>
+</div>
+
+<div class="container center">
+  <div class="row">
+    <div class="col m6">
+      <h2 class="center text-darken-3 green-text"><i class="large material-icons">accessibility</i></h2>
+      <p class="light center">With focus2hit you can try to avoid the employee attrition. <br>Focus your employee retention practices on the correct target. Have more happy employees!</p>
+    </div>
+    <div class="col m6">
+      <h2 class="center text-darken-3 green-text"><i class="large material-icons">show_chart</i></h2>
+      <p class="light center">Made your business thrive quickly, get the best of your employees and made them domain experts. <br>Learn how try for free!</p>
+    </div>
+  </div>
+</div>
+
+<footer class="page-footer green darken-4">
+  <div class="container">
+    <div class="row">
+      <div class="col l6 s12">
+        <h5 class="white-text">Team Bio</h5>
+        <p class="grey-text text-lighten-3">We are a team of seven master students trying to build a good, useful and multidisciplinar product for Agile Data Science subject.</p>
+      </div>
+
+      <div class="col l3 s12">
+        <h5 class="white-text">Know more</h5>
+        <ul>
+          <li><a class="white-text" href="#!">See success cases</a></li>
+          <li><a class="white-text" href="#!">Best practices on employee retention</a></li>
+          <li><a class="white-text" href="#!">Try for free</a></li>
+        </ul>
+      </div>
+      <div class="col l3 s12">
+        <h5 class="white-text">Connect with us</h5>
+        <ul>
+          <li><a class="white-text" href="https://github.com/AgileDataScienceUB/ADS4/wiki">Wiki</a></li>
+
+        </ul>
       </div>
     </div>
-  </footer>
+  </div>
+  <div class="footer-copyright">
+    <div class="container">
+    Made by <a class="white-text text-darken-1" href="http://materializecss.com">Materialize</a>
+    <br>
+    Free images from <a class="white-text text-darken-1" href="https://stocksnap.io/">Stocksnap.io</a>
+    </div>
+  </div>
+</footer>
 
 
   <!--  Scripts-->
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="js/materialize.js"></script>
   <script src="js/init.js"></script>
-  <script language="javascript">
-     function check(form) { /*function to check userid & password*/
-         /*the following code checkes whether the entered userid and password are matching*/
-         if(form.email.value == "eloi@focus2hit.com" && form.password.value == "eloi@focus2hit.com") {
-             window.open('home.html')/*opens the target page while Id & password matches*/
-         }
-     }
- </script>
+
   </body>
 </html>
