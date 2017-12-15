@@ -9,6 +9,7 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+
 </head>
 <body>
   <nav class="white" role="navigation">
@@ -22,42 +23,57 @@
         <li><a href="#"></a></li>
       </ul>
       <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
-    </div>
+      </div>
   </nav>
 
 
   <!-- HOME -->
 
   <div class="section">
-    <div class="row">
-      <div class = "col s12 m12 l12">
-        <form action="/upload" enctype='multipart/form-data'>
-          <div class="file-field input-field">
-            <div class="btn">
-              <span>Add new data</span>
-              <input type="file">
+
+    <div class = "container">
+      <div class="row">
+        <div class = "col s12 m12 l12">
+          <form action="/upload" enctype='multipart/form-data'>
+            <div class="file-field input-field">
+              <div class="btn green darken-4">
+                <span>Add new data</span>
+                <input type="file">
+              </div>
+              <div class="file-path-wrapper">
+                <input class="file-path validate" type="text" placeholder="Upload one or more files">
+              </div>
             </div>
-            <div class="file-path-wrapper">
-              <input class="file-path validate" type="text" placeholder="Upload one or more files">
+          </form>
+        </div>
+      </div>
+      <div class="row">
+        <div class = "col s12 m3 l3">
+          <span>(*) Data must be format XXXXX</span>
+        </div>
+        <div class = "col s12 m9 l9">
+          <nav>
+            <div class="nav-wrapper green darken-4">
+              <div class = "container">
+                <a href="" class="brand-logo white-text">Custom dashboards</a>
+              </div>
+              <div class = "container">
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                  <li><a href=""><span class = "valign-center white-text">Visualitzation A</span></a></li>
+                  <li><a href=""><span class = "valign-center white-text">Visualitzation B</span></a></li>
+                </ul>
+              </div>
             </div>
-          </div>
-        </form>
+          </nav>
+        </div>
       </div>
-    </div>
-    <div class="row">
-      <div class = "col s12 m6 l6">
-        <span>(*) Data must be format XXXXX</span>
-      </div>
-      <div class = "col s12 m6 l6">
-        <span>HERE SELECTOR VISZ A,B DIV</span>
-      </div>
-    </div>
-    <div class="row">
-      <div class = "col s12 m6 l6">
-        <span>HERE GRID USERS DIV</span>
-      </div>
-      <div class = "col s12 m6 l6">
-        <span>HERE VISUALITZATIONS DIV</span>
+      <div class="row">
+        <div class = "col s12 m3 l3">
+          <span>HERE GRID USERS DIV</span>
+        </div>
+        <div class = "col s12 m9 l9">
+          <span>HERE VISUALITZATIONS DIV</span>
+        </div>
       </div>
     </div>
   </div>
