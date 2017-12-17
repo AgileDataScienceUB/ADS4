@@ -92,7 +92,9 @@ def create_predictor():
     upload_object(clf, "clf.obj")
     upload_object(scaler, "scaler.obj")
     upload_object(valid_metrics, "valid_metrics.obj")
-    return 'Done'
+    response = flask.jsonify({'some': 'data'})
+    response.headers.add('Access-Control-Allow-Origin', '*')
+    return response
 
 @application.route('/predict', methods=["POST"])
 def predict():
