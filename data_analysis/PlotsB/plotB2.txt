@@ -1,0 +1,3 @@
+Probability of leaving respect job roles, Job role, Mean by role of lenght of service 
+HEADOFFICE 0.5079312984419823 
+STORES 0.49983133560099285 

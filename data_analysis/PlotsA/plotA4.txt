@@ -1,0 +1,3 @@
+Lenght of service by job roles, Job role, Mean by role of lenght of service 
+HEADOFFICE 20.07863247863248 
+STORES 10.319617673432788 
