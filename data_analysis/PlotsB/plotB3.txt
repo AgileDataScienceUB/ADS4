@@ -1,0 +1,4 @@
+Probability of leaving respect age, Age group, Predicted mean by age group 
+Young(<30) 0.20090683363920975
+Medium(30-50) 0.20170255383074612
+Old(>50) 0.1998794091046126
