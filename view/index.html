@@ -194,28 +194,32 @@
   <script src="js/materialize.js"></script>
   <script src="js/init.js"></script>
   <script>
+    // function create_model() {
+    //   var data = require('/Users/marc.cardus/Desktop/data.json')
+    //   var settings = {
+    //     "url": "http://ec2-34-243-4-122.eu-west-1.compute.amazonaws.com:3031/create-predictor",
+    //     "method": "POST",
+    //     "contentType": "application/json; charset=utf-8",
+    //     "dataType": "json",
+    //     "data": data
+    //   }
+    //
+    // $.ajax(settings).done(function (response) {
+    //   console.log(response);
+    // });
+    // }
     function create_model() {
       var form = new FormData();
-      form.append("target", "STATUS");
-      form.append("file", "/home/ec2-user/ADS4/MFG10YearTerminationData_train.csv");
-      form.append("employee_id", "EmployeeID");
-      form.append("record_date", "recorddate_key");
-      form.append("brith_date", "birthdate_key");
-      form.append("hire_date", "orighiredate_key");
-      form.append("termination_date", "terminationdate_key");
-      form.append("job_title", "job_title");
-    	form.append("record_id", "record_id";)
-      form.append("age", "age");
-      form.append("length_of_service", "length_of_service");
+      form.append("file", "/Users/marc.cardus/Personal/Uni/Agile/ADS4/backend/flask_api/code/etc/data/MFG10YearTerminationData_train.csv");
 
       var settings = {
         "async": true,
         "crossDomain": true,
-        "url": "http://localhost:3031/create-predictor",
+        "url": "http://34.243.4.122:3031/create-predictor",
         "method": "POST",
         "headers": {
-          "Cache-Control": "no-cache",
-          "Postman-Token": "d494017a-ff82-df82-e7b5-41b4c30b4a1c"
+          "cache-control": "no-cache",
+          "postman-token": "890f1954-eb41-8e3d-90a0-7e6f5a284141"
         },
         "processData": false,
         "contentType": false,
@@ -223,10 +227,9 @@
         "data": form
       }
 
-      $.ajax(settings).done(function (response) {
-        console.log(response);
-      });
-    }
+    $.ajax(settings).done(function (response) {
+      console.log(response);
+    });
     </script>
   </body>
 </html>

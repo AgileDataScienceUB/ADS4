@@ -10,6 +10,10 @@ from flask import Flask, request, abort, jsonify, make_response, redirect, flash
 from utils import upload_file, upload_object, download_object, object_exists
 from werkzeug.utils import secure_filename
 import pandoras_box
+from datetime import timedelta
+from flask import make_response, request, current_app
+from functools import update_wrapper
+from flask_cors import CORS, cross_origin
 
 UPLOAD_FOLDER = '/data'
 ALLOWED_EXTENSIONS = ['csv']
@@ -25,6 +29,7 @@ with application.app_context():
     application.iniconfig.read(os.environ['APP_SETTINGS'])
     application.logger.info("Loading application settings")
 
+CORS(application)
 
 def allowed_file(filename):
     return '.' in filename and \
@@ -59,6 +64,7 @@ def upload():
     '''
 
 @application.route('/create-predictor', methods=['POST'])
+@cross_origin()
 def create_predictor():
     # The 'target' key and the csv file are mandatory:
     # if they're missing you have a 'bad request' error
@@ -66,10 +72,10 @@ def create_predictor():
     file = request.files.get("file")
     if target is None or file is None:
         abort(400)
-    # Save the training dataset
+    # # Save the training dataset
     filename = 'data_train.csv'
     upload_file(file, filename)
-    # Train the model
+    # # Train the model
     selected_feats, woe_dicts, clf, scaler, valid_metrics = pandoras_box.create_predictor(
         filename,
         target,
@@ -92,11 +98,15 @@ def create_predictor():
     upload_object(clf, "clf.obj")
     upload_object(scaler, "scaler.obj")
     upload_object(valid_metrics, "valid_metrics.obj")
-    response = flask.jsonify({'some': 'data'})
-    response.headers.add('Access-Control-Allow-Origin', '*')
+
+    response = jsonify({'some': 'file'})
+    response.headers.add('Access-Control-Allow-Methods', 'POST, GET, OPTIONS, DELETE, PUT')
+    response.headers.add('Access-Control-Max-Age', '5000')
+    response.headers.add('Access-Control-Allow-Headers', 'x-requested-with, Content-Type, Accept-Encoding, Accept-Language, Cookie, Referer')
+    response.headers.add('Access-Control-Allow-Credentials', 'true')
     return response
 
-@application.route('/predict', methods=["POST"])
+@application.route('/predict', methods=["POST", 'OPTIONS'])
 def predict():
     # The csv file is mandatory:
     # if it's missing you have a 'bad request' error
@@ -141,8 +151,6 @@ def predict():
         #request.form.get("special_field_types")
     )
     return jsonify(y_hat.tolist())
-
-
 
 
 if __name__ == '__main__':
