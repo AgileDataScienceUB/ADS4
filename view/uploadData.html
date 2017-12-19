@@ -10,7 +10,8 @@
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 		<link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 		<link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-		<link rel="stylesheet" href="css/dropify.min.css">
+		<link href="css/c3.css" rel="stylesheet">
+
 	</head>
 	<body>
 		<nav class="white" role="navigation">
@@ -18,7 +19,7 @@
 		      <a id="logo-container" href="index.html" class="light-green-text text-darken-3 brand-logo">focus2hit</a>
 		      <ul class="right hide-on-med-and-down">
 		        <li><a href="#">Contact</a></li>
-		        <li><a href="#">Tell me more</a></li>
+		        <li><a href="https://github.com/AgileDataScienceUB/ADS4/wiki">Tell me more</a></li>
 		        <li><a href="uploadData.html">Predict</a><li>
 		        <li><a href="#">Plans & prices</a></li>
 		        <li><a href="index.html">Logout</a></li>
@@ -36,37 +37,93 @@
   		<div class="container">
 			<div class="row center">
 
-				<nav>
-					<div class="nav-wrapper green darken-3">
-						<ul>
-							<li class="active"><a class="white-text" href="uploadData.html">1. Upload your historical data</a></li>
-							<li class="white-text"><a class="white-text" href="predict.html">2. Upload new data to predict employee attrition</a></li>
+				<div class="row">
+					<div class="col s12">
+
+						<ul id="tabs-swipe" class="tabs tabs-fixed-width grey lighten-3">
+							<li class="tab col s3"><a href="#train-swipe" class="active green-text text-darken-3">1. Upload your historical data</a></li>
+							<li class="tab col s3"><a href="#predict-swipe" class="green-text text-darken-3">2. Upload data to predict employee attrition</a></li>
 						</ul>
 					</div>
-				</nav>
+				</div>
+			</div>
+			<div id="train-swipe" class="col s12">
+
+				<h4 class="center"> Welcome to the first step of focus2hit!</h4>
+				<p> <br> Before anything else, we need you to upload here your historical data. With this data, we will build for you a predictor model to learn how your employees have behaved in the past. Make sure this data belongs to you and you can use it accordingly to <a href="http://www.agpd.es/portalwebAGPD/canaldocumentacion/informes_juridicos/reglamento_lopd/">LOPD</a>. <br> To make sure your predictor is the best we can build for you, try to add all attributes you can to complete your own data.<br> Don't worry if you don't have all.<br>
+				The optimal attributes needed were:
+				
+				<br>
+				<table class="highlight centered">
+					<thead>
+					  <tr>
+					      <th>Name</th>
+					      <th>Attribute Description</th>
+					      <th>Type of attribute</th>
+					      <th>Mandatory?</th>
+					  </tr>
+					</thead>
+
+					<tbody>
+					  <tr>
+					    <td>EmployeeID</td>
+					    <td>Record id</td>
+					    <td>Hire date</td>
+					  </tr>
+					  <tr>
+					    <td>Record id</td>
+					    <td>Jellybean</td>
+					    <td>$3.76</td>
+					  </tr>
+					  <tr>
+					    <td>Hire date</td>
+					    <td>Jellybean</td>
+					    <td>$3.76</td>
+					  </tr>
+					  <tr>
+					    <td>Record date</td>
+					    <td>Jellybean</td>
+					    <td>$3.76</td>
+					  </tr>
+					<tr>
+					    <td>Termination date</td>
+					    <td>Jellybean</td>
+					    <td>$3.76</td>
+					  </tr>
+  					<tr>
+					    <td>Length of service</td>
+					    <td>Jellybean</td>
+					    <td>$3.76</td>
+					</tr>
+				 	<tr>
+					    <td>Length of service</td>
+					    <td>Jellybean</td>
+					    <td>$3.76</td>
+					</tr>
+				</tbody>
+			</table>
+
+				<br>
+				</p>
+			    <form action="/upload" enctype='multipart/form-data'>
+					<div class="file-field input-field">
+						<div class="btn">
+							<span>Add new data</span>
+							<input type="file">
+						</div>
+						<div class="file-path-wrapper">
+							<input class="file-path validate" type="text" placeholder="Upload one or more files">
+						</div>
+					</div>
+				</form>
+			<div class="container"> prpririir	<div id="chart"></div> </div>
+
 			</div>
 
-
-			<h4 class="center"> Welcome to the first step of focus2hit!</h4>
-			<p> <br> Before anything else, we need you to upload here your historical data. With this data, we will build for you a predictor model to learn how your employees have behaved in the past. Make sure this data belongs to you and you can use it accordingly to <a href="http://www.agpd.es/portalwebAGPD/canaldocumentacion/informes_juridicos/reglamento_lopd/">LOPD</a>. <br> To make sure your predictor is the best we can build for you, try to add all attributes you can to complete your own data.<br> Don't worry if you don't have all.<br>
-			The optimal attributes needed were:
-			
-			<br>
-			<br>
-			</p>
-		    <form action="/upload" enctype='multipart/form-data'>
-				<div class="file-field input-field">
-					<div class="btn">
-						<span>Add new data</span>
-						<input type="file">
-					</div>
-					<div class="file-path-wrapper">
-						<input class="file-path validate" type="text" placeholder="Upload one or more files">
-					</div>
-				</div>
-			</form>
-		<div class="container"></div>
 		</div>
+  		<div id="predict-swipe" class="col s12">Test 2
+
+  		</div>
 
   <!-- END HOME -->
 
@@ -107,8 +164,14 @@
 
 		<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
 		<script type="text/javascript" src="js/materialize.min.js"></script>
-        <script src="js/dropify.min.js"></script>
-        <script src="js/dropify.min.js"></script>
+
+		<!-- Load d3.js and c3.js -->
+
+		<script src="https://d3js.org/d3.v4.min.js"></script>
+
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.4.11/d3.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.11/c3.js"></script>
+        <script src="js/simple_multiple.js"></script>
 	</body>
 
 </html>
