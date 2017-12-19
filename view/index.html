@@ -182,9 +182,6 @@
     </div>
   </div>
   <div>
-    <button onclick="create_model()" >
-      CLICK ME
-    </button>
   </div>
 </footer>
 
@@ -193,43 +190,4 @@
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="js/materialize.js"></script>
   <script src="js/init.js"></script>
-  <script>
-    // function create_model() {
-    //   var data = require('/Users/marc.cardus/Desktop/data.json')
-    //   var settings = {
-    //     "url": "http://ec2-34-243-4-122.eu-west-1.compute.amazonaws.com:3031/create-predictor",
-    //     "method": "POST",
-    //     "contentType": "application/json; charset=utf-8",
-    //     "dataType": "json",
-    //     "data": data
-    //   }
-    //
-    // $.ajax(settings).done(function (response) {
-    //   console.log(response);
-    // });
-    // }
-    function create_model() {
-      var form = new FormData();
-      form.append("file", "/Users/marc.cardus/Personal/Uni/Agile/ADS4/backend/flask_api/code/etc/data/MFG10YearTerminationData_train.csv");
-
-      var settings = {
-        "async": true,
-        "crossDomain": true,
-        "url": "http://34.243.4.122:3031/create-predictor",
-        "method": "POST",
-        "headers": {
-          "cache-control": "no-cache",
-          "postman-token": "890f1954-eb41-8e3d-90a0-7e6f5a284141"
-        },
-        "processData": false,
-        "contentType": false,
-        "mimeType": "multipart/form-data",
-        "data": form
-      }
-
-    $.ajax(settings).done(function (response) {
-      console.log(response);
-    });
-    </script>
-  </body>
 </html>
