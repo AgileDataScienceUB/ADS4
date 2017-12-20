@@ -48,10 +48,13 @@ def plotB2(df,pred):
 
     roles=df[job_role_lavel].values
     unique_roles=np.unique(roles)
+    Ro=[]; Y=[]
+
     for i in unique_roles:
         inx= i==roles
         y=np.mean(pred[inx])
-        dict[i]=y
+        Y.append(y); Ro.append(i)
+    dict["values"]=[Ro,Y]
     return(dict)
 
 def plotB3(df,pred):
@@ -84,10 +87,8 @@ def plotB3(df,pred):
     ind= ages>50
     n=sum(ind); x=sum(pred[ind]>0.8) 
     y[2]=x/n
-    
-    for i in range(3) :        
-        dict[layersX[i]]=y[i]
 
+    dict["values"]=[layersX,y.tolist()]
     return(dict)
 
 def plotB4(pred):

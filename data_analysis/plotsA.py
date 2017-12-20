@@ -4,11 +4,11 @@ import pandas as pd
 def generate_plotsA_dict(train_data_path):
     "Generates a directory ./PlotsA with one txt file for each A plot. "
     df=pd.read_csv(train_data_path)
-    dictA1=plotA1(df)
-    dictA2=plotA2(df)
-    dictA3=plotA3(df)
-    dictA4=plotA4(df)
-    return (dictA1,dictA2,dictA3,dictA4)
+    dict_A1=plotA1(df)
+    dict_A2=plotA2(df)
+    dict_A3=plotA3(df)
+    dict_A4=plotA4(df)
+    return (dict_A1,dict_A2,dict_A3,dict_A4)
        
 def plotA1(df):
     "Returns path of a txt file with info about a Pie Plot"
@@ -25,8 +25,7 @@ def plotA1(df):
     ages[1]=sum(df[age_lavel]<=50)/n -ages[0]
     ages[2]=sum(df[age_lavel]>50)/n
     dict = {"plot-name": title}
-    for i in range(3):
-        dict[layersX[i]]=ages[i]
+    dict["values"]=[layersX,ages]
     return(dict)
 
 def plotA2(df):
@@ -43,12 +42,10 @@ def plotA2(df):
     y,x=np.histogram(X,bins=20)
     dict = {"plot-name": title}
     dict["layer-x"]=layerX; dict["layer-y"]=layerY;
-    values=[]
-    for i in range(len(y)):  
+    for i in range(len(x)):  
         if(x[i]<0):
             x[i]=0
-        values.append([x[i],y[i]])
-    dict["values"]=values
+    dict["values"]=[x.tolist(),y.tolist()]
     return(dict)
     
 def plotA3(df):
@@ -66,10 +63,7 @@ def plotA3(df):
     y=df[lenght_service_lavel].values
     dict = {"plot-name": title}
     dict["layer-x"]=layerX; dict["layer-y"]=layerY;
-    values=[]
-    for i in range(len(y)):  
-        values.append([x[i],y[i]])
-    dict["values"]=values
+    dict["values"]=[x.tolist(),y.tolist()]
     return(dict)
 
 def plotA4(df):
@@ -89,8 +83,10 @@ def plotA4(df):
     X=df[lenght_service_lavel].values
     roles=df[job_role_lavel].values
     unique_roles=np.unique(roles)
+    Ro=[];Y=[]
     for i in unique_roles:
         inx= i==roles
         y=np.mean(X[inx])
-        dict[i]=y
+        Ro.append(i); Y.append(y)
+    dict["values"]=[Ro,Y]
     return(dict)
