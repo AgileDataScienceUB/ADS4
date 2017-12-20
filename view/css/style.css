@@ -77,3 +77,11 @@ main {
 i.icon-black {
     color: black;
 }
+
+.tabs .indicator {
+  position: absolute;
+  bottom: 0;
+  height: 7px;
+  background-color: #2e7d32;
+  will-change: left, right;
+}
