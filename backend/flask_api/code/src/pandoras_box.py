@@ -5,6 +5,7 @@ import datetime as dt
 
 from sklearn.linear_model import LogisticRegression
 from sklearn.preprocessing import StandardScaler
+from sklearn import metrics
 
 from basic_utils import is_categorical, is_continuous, is_datetime
 from ml_utils import (k_fold_cross_validation, get_metrics, feature_selector, split_dataset,
@@ -61,11 +62,6 @@ def create_predictor(file_name, target, employee_id=None, record_id=None, hire_d
         df.sort_values(termination_date).reset_index(drop=True)
     elif birth_date:
         df.sort_values(birth_date).reset_index(drop=True)
-
-    # Create a random record_id if necessary (TO DO)
-    if not record_id:
-        record_id = 'record_id'
-        pass
 
     # Create result
     assert target, 'You must specify a target field.'
@@ -177,6 +173,21 @@ def create_predictor(file_name, target, employee_id=None, record_id=None, hire_d
     yhat = clf.predict(Xv_scaled)
     valid_metrics = get_metrics(yv, score, yhat)
 
+    fpr, tpr, _ = metrics.roc_curve(yv, score)
+
+    dict_A5 = {
+        "results": [
+            {
+                "param": "False positive rate",
+                "val": list(fpr)
+            },
+            {
+                "param": "True positive rate",
+                "val": list(tpr)
+            }
+        ]
+    }
+
     # Weight of evidence for the whole dataframe
     woe_dicts = {}
     for c in [v for v in indep_variables if is_categorical(df, v)]:
@@ -190,7 +201,7 @@ def create_predictor(file_name, target, employee_id=None, record_id=None, hire_d
     X_scaled = scaler.fit_transform(X)
     clf.fit(X_scaled, y)
 
-    return selected_feats, woe_dicts, clf, scaler, valid_metrics
+    return selected_feats, woe_dicts, clf, scaler, valid_metrics, dict_A5
 
 
 def get_prediction(file_name, selected_feats, woe_dicts, clf, scaler, employee_id=None,
@@ -252,4 +263,9 @@ def get_prediction(file_name, selected_feats, woe_dicts, clf, scaler, employee_i
     score = clf.predict_proba(X_scaled)[:, 1]
     y_hat = clf.predict(X_scaled)
 
-    return score, y_hat, df
+    result = pd.DataFrame({
+        employee_id: df[employee_id],
+        'score': score
+    })
+
+    return score, result
