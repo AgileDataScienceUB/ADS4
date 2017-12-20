@@ -6,6 +6,8 @@
 
     $('.modal').modal();
 
+
+
   }); // end of document ready
 })(jQuery); // end of jQuery name space
 
@@ -24,6 +26,8 @@ function check(form) { /*function to check userid & password*/
 
 //actual handler
 $("#submitbutton").on("click", function(){
+	$("#loader").show()
+	$("#plots").hide();
 
 	//arguments
 	var myfile = $("#csvfile")[0].files[0];
@@ -35,22 +39,10 @@ $("#submitbutton").on("click", function(){
 
 	//disable the button during upload
 	$("#submitbutton").attr("disabled", "disabled");
-	$("#loader").attr("active", "active");
-
 
 
 	var form = new FormData();
 	form.append("file", myfile);
-  form.append("target", "STATUS");
-  form.append("employee_id", "EmployeeID");
-  form.append("record_date", "recorddate_key");
-  form.append("brith_date", "birthdate_key");
-  form.append("hire_date", "orighiredate_key");
-  form.append("termination_date", "terminationdate_key");
-  form.append("job_title", "job_title");
-  form.append("record_id", "record_id");
-  form.append("age", "age");
-  form.append("length_of_service", "length_of_service");
 
 	var settings = {
 			"async": true,
@@ -70,6 +62,11 @@ $("#submitbutton").on("click", function(){
 
 	$.ajax(settings).done(function (response) {
 		console.log(response);
+		alert("OK");
+		$("#loader").hide();
+		$("#submitbutton").removeAttr('disabled');
+		$("#plots").show();
+
 	});
 
 });
