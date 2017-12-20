@@ -69,6 +69,7 @@
 							<td>EmployeeID</td>
 							<td>Record id</td>
 							<td>Hire date</td>
+							<td>Yes</td>
 						</tr>
 						<tr>
 							<td>Record id</td>
@@ -107,9 +108,68 @@
 				</p>
 				<h3>Uploading a CSV File</h3>
 
-				<b>CSV File</b> <input type="file" id="csvfile">
+
+				<form action="#">
+					<div class="file-field input-field">
+						<div class="btn">
+							<span>File</span>
+							<input type="file" id="csvfile">
+						</div>
+						<div class="file-path-wrapper">
+							<input class="file-path validate" type="text">
+						</div>
+	 					<button class="btn waves-effect waves-light" id="submitbutton" type="submit" name="action">Train model</button>
+						<div class="preloader-wrapper big" id="loader">
+							<div class="spinner-layer spinner-blue">
+								<div class="circle-clipper left">
+									<div class="circle"></div>
+									</div><div class="gap-patch">
+									<div class="circle"></div>
+									</div><div class="circle-clipper right">
+									<div class="circle"></div>
+									</div>
+									</div>
+
+									<div class="spinner-layer spinner-red">
+									<div class="circle-clipper left">
+									<div class="circle"></div>
+									</div><div class="gap-patch">
+									<div class="circle"></div>
+									</div><div class="circle-clipper right">
+									<div class="circle"></div>
+									</div>
+									</div>
+
+									<div class="spinner-layer spinner-yellow">
+									<div class="circle-clipper left">
+									<div class="circle"></div>
+									</div><div class="gap-patch">
+									<div class="circle"></div>
+									</div><div class="circle-clipper right">
+									<div class="circle"></div>
+									</div>
+									</div>
+
+									<div class="spinner-layer spinner-green">
+									<div class="circle-clipper left">
+									<div class="circle"></div>
+									</div><div class="gap-patch">
+									<div class="circle"></div>
+									</div><div class="circle-clipper right">
+									<div class="circle"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+					</div>
+				  	
+				</form>
+
 				<br>
-				<button id="submitbutton" type="button">Train model</button>
+				<!--<button id="submitbutton" type="button">Train model</button>-->
+
+ 	
+ 				
 				<div class="container">
 					<div class="row">
 						<div class="col s12">
@@ -169,47 +229,11 @@
 
 		<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
 		<script type="text/javascript" src="js/materialize.min.js"></script>
-		<script>
-			//actual handler
-			$("#submitbutton").on("click", function(){
-
-			    //arguments
-			    var myfile = $("#csvfile")[0].files[0];
-
-			    if(!myfile){
-			        alert("No file selected.");
-			        return;
-			    }
-
-			    //disable the button during upload
-			    $("#submitbutton").attr("disabled", "disabled");
-
-					var form = new FormData();
-      		form.append("file", myfile);
-
-					var settings = {
-					        "async": true,
-					        "crossDomain": true,
-					        "url": "http://34.243.4.122:3031/create-predictor",
-					        "method": "POST",
-					        "headers": {
-					          "cache-control": "no-cache",
-					          "postman-token": "890f1954-eb41-8e3d-90a0-7e6f5a284141"
-					        },
-					        "processData": false,
-					        "contentType": false,
-					        "mimeType": "multipart/form-data",
-					        "data": form
-					      }
-
-
-					$.ajax(settings).done(function (response) {
-					  console.log(response);
-					});
-
-
-			});
-		</script>
+		<script src="https://d3js.org/d3.v4.min.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.4.11/d3.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.11/c3.js"></script>
+		<script src="js/simple_multiple.js"></script>
+		<script src="js/init.js"></script>
 	</body>
 
 </html>
