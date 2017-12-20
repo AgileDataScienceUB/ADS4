@@ -68,40 +68,36 @@ def upload():
 def create_predictor():
     # The 'target' key and the csv file are mandatory:
     # if they're missing you have a 'bad request' error
-    # target = request.form.get("target")
+    target = request.form.get("target")
     file = request.files.get("file")
-
-    print type(file)
-    print file
-
-    # if target is None or file is None:
-    #     abort(400)
-    # # # Save the training dataset
-    # filename = 'data_train.csv'
-    # upload_file(file, filename)
-    # # # Train the model
-    # selected_feats, woe_dicts, clf, scaler, valid_metrics = pandoras_box.create_predictor(
-    #     filename,
-    #     target,
-    #     request.form.get("employee_id"),
-    #     request.form.get("record_id"),
-    #     request.form.get("hire_date"),
-    #     request.form.get("record_date"),
-    #     request.form.get("termination_date"),
-    #     request.form.get("length_of_service"),
-    #     request.form.get("age"),
-    #     request.form.get("birth_date"),
-    #     request.form.get("birth_year"),
-    #     request.form.getlist("other_target_fields"),
-    #     request.form.get("job_title")
-    #     #request.form.get("special_field_types")
-    # )
-    # # Save the trained model for future use
-    # upload_object(selected_feats, "selected_feats.obj")
-    # upload_object(woe_dicts, "woe_dicts.obj")
-    # upload_object(clf, "clf.obj")
-    # upload_object(scaler, "scaler.obj")
-    # upload_object(valid_metrics, "valid_metrics.obj")
+    if target is None or file is None:
+        abort(400)
+    # # Save the training dataset
+    filename = 'data_train.csv'
+    upload_file(file, filename)
+    # # Train the model
+    selected_feats, woe_dicts, clf, scaler, valid_metrics = pandoras_box.create_predictor(
+        filename,
+        target,
+        request.form.get("employee_id"),
+        request.form.get("record_id"),
+        request.form.get("hire_date"),
+        request.form.get("record_date"),
+        request.form.get("termination_date"),
+        request.form.get("length_of_service"),
+        request.form.get("age"),
+        request.form.get("birth_date"),
+        request.form.get("birth_year"),
+        request.form.getlist("other_target_fields"),
+        request.form.get("job_title")
+        #request.form.get("special_field_types")
+    )
+    # Save the trained model for future use
+    upload_object(selected_feats, "selected_feats.obj")
+    upload_object(woe_dicts, "woe_dicts.obj")
+    upload_object(clf, "clf.obj")
+    upload_object(scaler, "scaler.obj")
+    upload_object(valid_metrics, "valid_metrics.obj")
 
     response = jsonify({'some': 'file'})
     response.headers.add('Access-Control-Allow-Methods', 'POST, GET, OPTIONS, DELETE, PUT')
