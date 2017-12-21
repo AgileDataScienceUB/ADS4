@@ -40,9 +40,13 @@ $("#submitbutton").on("click", function(){
 	//disable the button during upload
 	$("#submitbutton").attr("disabled", "disabled");
 
-
-	var form = new FormData();
-	form.append("file", myfile);
+  var form = new FormData();
+  form.append("target", "Attrition");
+  form.append("file", myfile);
+  form.append("employee_id", "EmployeeNumber");
+  form.append("job_title", "JobRole");
+  form.append("age", "Age");
+  form.append("length_of_service", "YearsAtCompany");
 
 	var settings = {
 			"async": true,

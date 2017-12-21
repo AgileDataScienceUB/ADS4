@@ -66,44 +66,40 @@ def upload():
 @application.route('/create-predictor', methods=['POST'])
 @cross_origin()
 def create_predictor():
-    # The 'target' key and the csv file are mandatory:
-    # if they're missing you have a 'bad request' error
-    # target = request.form.get("target")
+    # Collecting fields. Target and file are mandatories
+    target = request.form.get("target")
     file = request.files.get("file")
+    employee_id = request.form.get("employee_id")
+    length_of_service = request.form.get("length_of_service")
+    age = request.form.get("age")
+    job_title = request.form.get("job_title")
 
-    print type(file)
-    print file
+    if target is None or file is None:
+        abort(400)
+    # Save the training dataset
+    filename = 'data_train.csv'
+    upload_file(file, filename)
 
-    # if target is None or file is None:
-    #     abort(400)
-    # # # Save the training dataset
-    # filename = 'data_train.csv'
-    # upload_file(file, filename)
-    # # # Train the model
-    # selected_feats, woe_dicts, clf, scaler, valid_metrics = pandoras_box.create_predictor(
-    #     filename,
-    #     target,
-    #     request.form.get("employee_id"),
-    #     request.form.get("record_id"),
-    #     request.form.get("hire_date"),
-    #     request.form.get("record_date"),
-    #     request.form.get("termination_date"),
-    #     request.form.get("length_of_service"),
-    #     request.form.get("age"),
-    #     request.form.get("birth_date"),
-    #     request.form.get("birth_year"),
-    #     request.form.getlist("other_target_fields"),
-    #     request.form.get("job_title")
-    #     #request.form.get("special_field_types")
-    # )
-    # # Save the trained model for future use
-    # upload_object(selected_feats, "selected_feats.obj")
-    # upload_object(woe_dicts, "woe_dicts.obj")
-    # upload_object(clf, "clf.obj")
-    # upload_object(scaler, "scaler.obj")
-    # upload_object(valid_metrics, "valid_metrics.obj")
+    # Train the model
+    selected_feats,woe_dicts,clf,scaler,valid_metrics,dict_A5 = pandoras_box.create_predictor(
+        filename,
+        target,
+        employee_id=employee_id,
+        length_of_service=length_of_service,
+        age=age,
+        job_title=job_title)
 
-    response = jsonify({'some': 'file'})
+    # Save the trained model for future use
+    upload_object(selected_feats, "selected_feats.obj")
+    upload_object(woe_dicts, "woe_dicts.obj")
+    upload_object(clf, "clf.obj")
+    upload_object(scaler, "scaler.obj")
+    upload_object(valid_metrics, "valid_metrics.obj")
+
+    # Response body
+    response = jsonify({'Result': 'Model successfully trained'})
+
+    # Managing response CORS
     response.headers.add('Access-Control-Allow-Methods', 'POST, GET, OPTIONS, DELETE, PUT')
     response.headers.add('Access-Control-Max-Age', '5000')
     response.headers.add('Access-Control-Allow-Headers', 'x-requested-with, Content-Type, Accept-Encoding, Accept-Language, Cookie, Referer')
@@ -114,9 +110,11 @@ def create_predictor():
 def predict():
     # The csv file is mandatory:
     # if it's missing you have a 'bad request' error
+
     file = request.files.get("file")
     if file is None:
         abort(400)
+
     # It is mandatory to have a trained model
     # Without that, you have a 'bad request' error
     if  object_exists("selected_feats.obj") is False \
@@ -126,36 +124,45 @@ def predict():
         or object_exists("valid_metrics.obj") is False:
         abort(400)
     # Save the test dataset
+
+    filename = 'data_test.csv'
+    employee_id = request.form.get("employee_id")
+    length_of_service = request.form.get("length_of_service")
+    age = request.form.get("age")
+    job_title = request.form.get("job_title")
+
+
     filename = 'data_test.csv'
     upload_file(file, filename)
+
     # Download the trained model
     selected_feats = download_object("selected_feats.obj")
     woe_dicts = download_object("woe_dicts.obj")
     clf = download_object("clf.obj")
     scaler = download_object("scaler.obj")
     valid_metrics = download_object("valid_metrics.obj")
+
     # Get the predictions
-    score, y_hat, df = pandoras_box.get_prediction(
+    score, y_hat = pandoras_box.get_prediction(
         filename,
         selected_feats,
         woe_dicts,
         clf,
         scaler,
-        request.form.get("employee_id"),
-        request.form.get("record_id"),
-        request.form.get("hire_date"),
-        request.form.get("record_date"),
-        request.form.get("termination_date"),
-        request.form.get("length_of_service"),
-        request.form.get("age"),
-        request.form.get("birth_date"),
-        request.form.get("birth_year"),
-        request.form.getlist("other_target_fields"),
-        request.form.get("job_title")
-        #request.form.get("special_field_types")
-    )
-    return jsonify(y_hat.tolist())
+        employee_id=employee_id,
+        length_of_service=length_of_service,
+        age=age,
+        job_title=job_title)
 
+    # Save predictions
+    upload_object(score, "predict_score.obj")
+
+    response = jsonify({'Result': 'Model successfully predicted'})
+    response.headers.add('Access-Control-Allow-Methods', 'POST, GET, OPTIONS, DELETE, PUT')
+    response.headers.add('Access-Control-Max-Age', '5000')
+    response.headers.add('Access-Control-Allow-Headers', 'x-requested-with, Content-Type, Accept-Encoding, Accept-Language, Cookie, Referer')
+    response.headers.add('Access-Control-Allow-Credentials', 'true')
+    return response
 
 if __name__ == '__main__':
     application.debug = True
