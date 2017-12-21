@@ -14,6 +14,7 @@ from datetime import timedelta
 from flask import make_response, request, current_app
 from functools import update_wrapper
 from flask_cors import CORS, cross_origin
+from aggregations import plotA1
 
 UPLOAD_FOLDER = '/data'
 ALLOWED_EXTENSIONS = ['csv']
