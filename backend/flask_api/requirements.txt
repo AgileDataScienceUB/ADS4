@@ -24,3 +24,4 @@ sklearn==0.0
 uWSGI==2.0.15
 virtualenv==15.1.0
 Werkzeug==0.12.2
+Flask-Cors==3.0.3
