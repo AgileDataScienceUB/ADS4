@@ -107,6 +107,7 @@ def create_predictor():
     return response
 
 @application.route('/predict', methods=["POST", 'OPTIONS'])
+@cross_origin()
 def predict():
     # The csv file is mandatory:
     # if it's missing you have a 'bad request' error
