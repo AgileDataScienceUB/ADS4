@@ -14,7 +14,7 @@ def plotA1(df):
     "Returns path of a txt file with info about a Pie Plot"
     "First row contains title, then each line contains a layer and a percentage of a Pie Plot"
     
-    age_lavel="age" ## lavel with feature name of ages. it may be different!!
+    age_lavel="Age" ## lavel with feature name of ages. it may be different depending on dataset!!
     
     title="Employees Ages"
 
@@ -53,7 +53,7 @@ def plotA3(df):
     "First row contains strings with title and layers X and Y(seperated by comas). Then each row is a point (x,y) of a scatter plot"
     
     salary_lavel= "MonthlyIncome" ##!!
-    lenght_service_lavel="length_of_service"
+    lenght_service_lavel="YearsAtCompany"
     
     n=df.shape[0]
     title= "Salary vs lenght of service"
@@ -71,8 +71,8 @@ def plotA4(df):
     "First row contains strings with title and layers X and Y(seperated by comas)."
     "Then each row contains a string with the name of the column and its columns lenght y value"
     
-    lenght_service_lavel="length_of_service" ##!!
-    job_role_lavel= "BUSINESS_UNIT"
+    lenght_service_lavel="YearsAtCompany" ##!!
+    job_role_lavel= "JobRole"
     
     title="Lenght of service by job roles"
     layerX= "Job role"
