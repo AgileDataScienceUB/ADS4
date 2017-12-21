@@ -37,7 +37,7 @@ def plotB2(df,pred):
     "Then each row contains a string with the name of the column and its columns lenght y value"
     
     ##!!
-    job_role_lavel= "BUSINESS_UNIT"
+    job_role_lavel= "JobRole"
     ##!!
     
     title="Probability of leaving respect job roles"
@@ -63,7 +63,7 @@ def plotB3(df,pred):
     "Then each row contains a string with the name of the column and its columns lenght y value"
     
     ##!!
-    age_lavel= "age"
+    age_lavel= "Age"
     ##!!
     
     title="Probability of leaving respect age"
@@ -113,7 +113,7 @@ def plotB5(df,pred):
     "Then each row contains a string with the name of the column and its columns lenght y value"
     
     ##!!
-    LOS_lavel= "length_of_service"
+    LOS_lavel= "YearsAtCompany"
     ##!!
     
     title="Probability of leaving respect age group"
