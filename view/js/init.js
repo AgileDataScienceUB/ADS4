@@ -27,6 +27,7 @@ function check(form) { /*function to check userid & password*/
 
 //actual handler
 $("#submitbutton").on("click", function(){
+	alert("OK");
 	$("#loader").show()
 	$("#plots").hide();
 

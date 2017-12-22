@@ -16,9 +16,11 @@ var pie = c3.generate({
 });
 
 
-var scatter = c3.generate({
-    bindto: '#scatter',
-    data: {
+$.getJSON('http://34.243.4.122:3031/plotA3', function(data3) {
+    //data is the JSON string
+    var scatter = c3.generate({
+        bindto: '#scatter',
+        data: {
         xs: {
             setosa: 'setosa_x',
             versicolor: 'versicolor_x',
@@ -31,45 +33,21 @@ var scatter = c3.generate({
             ["versicolor", 1.4, 1.5, 1.5, 1.3, 1.5, 1.3, 1.6, 1.0, 1.3, 1.4, 1.0, 1.5, 1.0, 1.4, 1.3, 1.4, 1.5, 1.0, 1.5, 1.1, 1.8, 1.3, 1.5, 1.2, 1.3, 1.4, 1.4, 1.7, 1.5, 1.0, 1.1, 1.0, 1.2, 1.6, 1.5, 1.6, 1.5, 1.3, 1.3, 1.3, 1.2, 1.4, 1.2, 1.0, 1.3, 1.2, 1.3, 1.3, 1.1, 1.3],
         ],
         type: 'scatter'
-    },
-    axis: {
-        x: {
-            label: 'Sepal.Width',
-            tick: {
-                fit: false
+        },
+        axis: {
+            x: {
+                label: data3["layer-x"],
+                tick: {
+                    fit: false
+                }
+            },
+            y: {
+                label: data3["layer-y"]
             }
         },
-        y: {
-            label: 'Petal.Width'
-        }
-    },
+    });
+
 });
-
-setTimeout(function () {
-    scatter.load({
-        xs: {
-            virginica: 'virginica_x'
-        },
-        columns: [
-            ["virginica_x", 3.3, 2.7, 3.0, 2.9, 3.0, 3.0, 2.5, 2.9, 2.5, 3.6, 3.2, 2.7, 3.0, 2.5, 2.8, 3.2, 3.0, 3.8, 2.6, 2.2, 3.2, 2.8, 2.8, 2.7, 3.3, 3.2, 2.8, 3.0, 2.8, 3.0, 2.8, 3.8, 2.8, 2.8, 2.6, 3.0, 3.4, 3.1, 3.0, 3.1, 3.1, 3.1, 2.7, 3.2, 3.3, 3.0, 2.5, 3.0, 3.4, 3.0],
-            ["virginica", 2.5, 1.9, 2.1, 1.8, 2.2, 2.1, 1.7, 1.8, 1.8, 2.5, 2.0, 1.9, 2.1, 2.0, 2.4, 2.3, 1.8, 2.2, 2.3, 1.5, 2.3, 2.0, 2.0, 1.8, 2.1, 1.8, 1.8, 1.8, 2.1, 1.6, 1.9, 2.0, 2.2, 1.5, 1.4, 2.3, 2.4, 1.8, 1.8, 2.1, 2.4, 2.3, 1.9, 2.3, 2.5, 2.3, 1.9, 2.0, 2.3, 1.8],
-        ]
-    });
-}, 1000);
-
-setTimeout(function () {
-    scatter.unload({
-        ids: 'setosa'
-    });
-}, 2000);
-
-setTimeout(function () {
-    scatter.load({
-        columns: [
-            ["virginica", 0.2, 0.2, 0.2, 0.2, 0.2, 0.4, 0.3, 0.2, 0.2, 0.1, 0.2, 0.2, 0.1, 0.1, 0.2, 0.4, 0.4, 0.3, 0.3, 0.3, 0.2, 0.4, 0.2, 0.5, 0.2, 0.2, 0.4, 0.2, 0.2, 0.2, 0.2, 0.4, 0.1, 0.2, 0.2, 0.2, 0.2, 0.1, 0.2, 0.2, 0.3, 0.3, 0.2, 0.6, 0.4, 0.3, 0.2, 0.2, 0.2, 0.2],
-        ]
-    });
-}, 3000);
 
 
 var metric1 = c3.generate({
@@ -158,7 +136,10 @@ setTimeout(function () {
 }, 2500);
 
 
-var barchart = c3.generate({
+$.getJSON('http://34.243.4.122:3031/plotB1', function(data2) {
+    //data is the JSON string
+
+    var barchart = c3.generate({
     bindto: '#barchart',
     data: {
         columns: [
@@ -173,16 +154,29 @@ var barchart = c3.generate({
         }
         // or
         //width: 100 // this makes bar width 100px
-    }
-});
+    },
+     axis: {
+            x: {
+                label: data2["layer-x"],
+                tick: {
+                    fit: false
+                }
+            },
+            y: {
+                label: data2["layer-y"]
+            }
+    },
+    });
 
-setTimeout(function () {
+    setTimeout(function () {
     barchart.load({
         columns: [
             ['data3', 130, -150, 200, 300, -200, 100]
         ]
     });
-}, 1000);
+    }, 1000);
+
+});
 
 
 var barchart2 = c3.generate({
