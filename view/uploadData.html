@@ -21,8 +21,12 @@
 		        <li><a href="#">Contact</a></li>
 		        <li><a href="https://github.com/AgileDataScienceUB/ADS4/wiki">Tell me more</a></li>
 		        <li><a href="uploadData.html">Predict</a><li>
-		        <li><a href="#">Plans & prices</a></li>
-		        <li><a href="index.html">Logout</a></li>
+				<li><a href="#">Plans & prices</a></li>
+				<li><a class='dropdown-button' href='#' data-activates='dropdown1'>Hello, Eloi</a></li>
+				<ul id='dropdown1' class='dropdown-content'>
+					<li><i class="large material-icons" align="center">account_circle</i></li>
+					<li><a href="index.html">Logout</a></li>
+				</ul>
 		      </ul>
 
 		      <ul id="nav-mobile" class="side-nav">
@@ -277,6 +281,7 @@
 					</div>
 				</div>
 
+<<<<<<< HEAD
 			</div>
 			<div class="col hide-on-small-only m3 l2">
 				<ul class="section table-of-contents">
@@ -289,11 +294,33 @@
 			</div>
 		</div>
 				<!--<button id="submitbutton" type="button">Train model</button>-->
-
-				<div id="predict-swipe" class="col s12">Test 2
-
-				</div>
+=======
+				<!--<button id="prediction_button" type="button">Train model</button>-->
 			</div> <!-- train-swipe-->
+>>>>>>> cee1ba6e530cbfeb14c73853c93c240c1a938c25
+
+				<div id="predict-swipe" class="col s12">
+					<h4 class="center">Lorem Ipsum</h4>
+					<p> Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+						Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
+					when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+					<br>
+					<div class="row file-field input-field">
+						<a class="btn">
+							<i class="material-icons large">folder_open</i>
+							<input id="prediction_csv" type="file">
+						</a>
+						<div class="file-path-wrapper">
+							<input class="file-path validate" placeholder="Select your csv file..." type="text">
+						</div>
+
+	 				</div>
+					<div class = "row">
+						<div class = "container">
+							<div class="btn waves-effect waves-light" id="prediction_button">Make a prediction!</div>
+						</div>
+					</div>
+				</div>
 		</div><!--container-->
 
  <!-- END HOME -->

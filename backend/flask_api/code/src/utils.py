@@ -1,11 +1,18 @@
 import os
 import pickle
+import pandas as pd
 
 # This function should upload the given file to S3, saving it
 # with the given filename
 # In this case the function is simply saving the file locally
 def upload_file(file, filename):
     file.save(filename)
+
+# This function should download the given file to S3
+# In this case the function is simply saving the file locally
+def download_file(file, filename):
+    file = open(objectname, 'w')
+    return file
 
 # This function should upload the given object to S3, saving it
 # with the given objectname
@@ -28,3 +35,7 @@ def download_object(objectname):
 # in the filesystem
 def object_exists(objectname):
     return os.path.isfile(objectname)
+
+def csv_to_df(csv_path):
+    df=pd.read_csv(csv_path)
+    return df
