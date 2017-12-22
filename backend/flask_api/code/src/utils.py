@@ -8,6 +8,12 @@ import pandas as pd
 def upload_file(file, filename):
     file.save(filename)
 
+# This function should download the given file to S3
+# In this case the function is simply saving the file locally
+def download_file(file, filename):
+    file = open(objectname, 'w')
+    return file
+
 # This function should upload the given object to S3, saving it
 # with the given objectname
 # In this case the function is simply saving the object locally
