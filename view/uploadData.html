@@ -33,8 +33,10 @@
   		</nav>
 
 
+
   		  <!-- HOME -->
   		<div class="container">
+
 			<div class="row center">
 
 				<div class="row">
@@ -47,217 +49,245 @@
 					</div>
 				</div>
 			</div>
+
 			<div id="train-swipe" class="col s12">
+				<div class="row">
+					<div class="col s12 m9 l10">
+	
+				
 
-				<h4 class="center">Welcome to the first step of focus2hit!</h4>
-				<p> <br> Before anything else, we need you to upload here your historical data. With this data, we will build for you a predictor model to learn how your employees have behaved in the past. Make sure this data belongs to you and you can use it accordingly to <a href="http://www.agpd.es/portalwebAGPD/canaldocumentacion/informes_juridicos/reglamento_lopd/">LOPD</a>. <br> To make sure your predictor is the best we can build for you, try to add all attributes you can to complete your own data.<br> Don't worry if you don't have all.<br>
-				The optimal attributes needed were:
 
-				<br>
-				<table class="highlight centered">
-					<thead>
-					  <tr>
-					      <th>Name</th>
-					      <th>Attribute Description</th>
-					      <th>Type of attribute</th>
-					      <th>Mandatory?</th>
-					  </tr>
-					</thead>
+				<div class ="section scrollspy" id ="introduction">
+					<h4 class="center">Welcome to the first step of focus2hit!</h4>
+					<p> <br> Before anything else, we need you to upload here your historical data. With this data, we will build for you a predictor model to learn how your employees have behaved in the past. Make sure this data belongs to you and you can use it accordingly to <a href="http://www.agpd.es/portalwebAGPD/canaldocumentacion/informes_juridicos/reglamento_lopd/">LOPD</a>. <br> To make sure your predictor is the best we can build for you, try to add all attributes you can to complete your own data.<br> Don't worry if you don't have all.<br></p>
+				</div>
+				<div class ="section scrollspy" id ="needs">
+					<p>
+						The optimal attributes needed were:
 
-					<tbody>
-				  		<tr>
-							<td>EmployeeID</td>
-							<td>Integer identifying an employee</td>
-							<td>Integer</td>
-							<td>No</td>
-						</tr>
-						<tr>
-							<td>Record id</td>
-							<td>Integer identifying a unique row of our final dataset</td>
-							<td>Integer</td>
-							<td>No</td>
-						</tr>
-						<tr>
-							<td>Hire date</td>
-							<td>Date of hire of the employee</td>
-							<td>Date</td>
-							<td>No</td>
-						</tr>
-						<tr>
-							<td>Record date</td>
-							<td>Date of the registration of the employee in the dataset</td>
-							<td>Date</td>
-							<td>No</td>
-						</tr>
-						<tr>
-							<td>Termination date</td>
-							<td>Date of termination of the employee (it can be a default date if he's still working</td>
-							<td>Date</td>
-							<td>No</td>
-						</tr>
-						<tr>
-							<td>Length of service</td>
-							<td>Integer expressing the years from hiring to record date</td>
-							<td>Integer</td>
-							<td>No</td>
-						</tr>
-						<tr>
-							<td>Age</td>
-							<td>Integer referring to the age of the employee</td>
-							<td>Integer</td>
-							<td>No</td>
-						</tr>
-						<tr>
-							<td>Target</td>
-							<td>Boolean expressing our class value. It can assume value 1 if an employee is likely to leave, 0 otherwise</td>
-							<td>Boolean</td>
-							<td>Yes</td>
-						</tr>
-						<tr>
-							<td>Other target fields</td>
-							<td>List of other fields related to our target value</td>
-							<td>List</td>
-							<td>No</td>
-						</tr>
-						<tr>
-							<td>Job title</td>
-							<td>Role of the employee in the organization</td>
-							<td>String</td>
-							<td>No</td>
-						</tr>
-						<tr>
-							<td>Salary</td>
-							<td>Monthly income of an employee</td>
-							<td>Integer</td>
-							<td>No</td>
-						</tr>
-						<tr>
-							<td>Special field types</td>
-							<td>Contact us to add another fields</td>
-							<td>List</td>
-							<td>No</td>
-						</tr>
-					</tbody>
-				</table>
+					<br>
+					<table class="highlight centered">
+						<thead>
+						  <tr>
+						      <th>Name</th>
+						      <th>Attribute Description</th>
+						      <th>Type of attribute</th>
+						      <th>Mandatory?</th>
+						  </tr>
+						</thead>
 
-				<br>
-				</p>
+						<tbody>
+					  		<tr>
+								<td>EmployeeID</td>
+								<td>Integer identifying an employee</td>
+								<td>Integer</td>
+								<td>No</td>
+							</tr>
+							<tr>
+								<td>Record id</td>
+								<td>Integer identifying a unique row of our final dataset</td>
+								<td>Integer</td>
+								<td>No</td>
+							</tr>
+							<tr>
+								<td>Hire date</td>
+								<td>Date of hire of the employee</td>
+								<td>Date</td>
+								<td>No</td>
+							</tr>
+							<tr>
+								<td>Record date</td>
+								<td>Date of the registration of the employee in the dataset</td>
+								<td>Date</td>
+								<td>No</td>
+							</tr>
+							<tr>
+								<td>Termination date</td>
+								<td>Date of termination of the employee (it can be a default date if he's still working</td>
+								<td>Date</td>
+								<td>No</td>
+							</tr>
+							<tr>
+								<td>Length of service</td>
+								<td>Integer expressing the years from hiring to record date</td>
+								<td>Integer</td>
+								<td>No</td>
+							</tr>
+							<tr>
+								<td>Age</td>
+								<td>Integer referring to the age of the employee</td>
+								<td>Integer</td>
+								<td>No</td>
+							</tr>
+							<tr>
+								<td>Target</td>
+								<td>Boolean expressing our class value. It can assume value 1 if an employee is likely to leave, 0 otherwise</td>
+								<td>Boolean</td>
+								<td>Yes</td>
+							</tr>
+							<tr>
+								<td>Other target fields</td>
+								<td>List of other fields related to our target value</td>
+								<td>List</td>
+								<td>No</td>
+							</tr>
+							<tr>
+								<td>Job title</td>
+								<td>Role of the employee in the organization</td>
+								<td>String</td>
+								<td>No</td>
+							</tr>
+							<tr>
+								<td>Salary</td>
+								<td>Monthly income of an employee</td>
+								<td>Integer</td>
+								<td>No</td>
+							</tr>
+							<tr>
+								<td>Special field types</td>
+								<td>Contact us to add another fields</td>
+								<td>List</td>
+								<td>No</td>
+							</tr>
+						</tbody>
+					</table>
+
+					<br>
+					</p>
+				</div>
 
 				<div class="container">
-					<h4 class="center">OK! Let's now upload your historical data</h4>
-					<div class="row file-field input-field">
-						<a class="btn">
-							<i class="material-icons large">folder_open</i>
-							<input type="file" id="csvfile">
-						</a>
-						<div class="file-path-wrapper">
-							<input class="file-path validate" type="text" placeholder="Select your csv file...">
+					<div class ="section scrollspy" id ="uploadData">
+						<h4 class="center">OK! Let's now upload your historical data</h4>
+						<div class="row file-field input-field">
+							<a class="btn">
+								<i class="material-icons large">folder_open</i>
+								<input type="file" id="csvfile">
+							</a>
+							<div class="file-path-wrapper">
+								<input class="file-path validate" type="text" placeholder="Select your csv file...">
+							</div>
+
+		 				</div>
+
+		 				<div class="container center">
+		 					<div class="btn waves-effect waves-light" id="submitbutton">Train the model!</div>
+							<br><br><br>
+							<div class="preloader-wrapper big" style="display:none" id="loader">
+								<div class="spinner-layer spinner-blue">
+									<div class="circle-clipper left">
+										<div class="circle"></div>
+									</div>
+									<div class="gap-patch">
+										<div class="circle"></div>
+									</div>
+									<div class="circle-clipper right">
+										<div class="circle"></div>
+									</div>
+								</div>
+
+								<div class="spinner-layer spinner-red">
+									<div class="circle-clipper left">
+										<div class="circle"></div>
+									</div>
+									<div class="gap-patch">
+										<div class="circle"></div>
+									</div>
+									<div class="circle-clipper right">
+										<div class="circle"></div>
+									</div>
+								</div>
+
+								<div class="spinner-layer spinner-yellow">
+									<div class="circle-clipper left">
+										<div class="circle"></div>
+									</div>
+									<div class="gap-patch">
+										<div class="circle"></div>
+									</div>
+									<div class="circle-clipper right">
+										<div class="circle"></div>
+									</div>
+								</div>
+
+								<div class="spinner-layer spinner-green">
+									<div class="circle-clipper left">
+										<div class="circle"></div>
+									</div>
+									<div class="gap-patch">
+										<div class="circle"></div>
+									</div>
+									<div class="circle-clipper right">
+										<div class="circle"></div>
+									</div>
+								</div>
+
+							</div> <!-- preloader -->
+
+						</div> <!-- container interior -->
+						<br>
+					</div> <!-- container -->
+				</div>
+
+				<div class="container center" id="plots">
+					<div class ="section scrollspy" id ="about">
+						<h4>What about your data?</h4>
+						<br>
+						<div class="row">
+							<div class="col s6">
+								<h6>Age distribution</h6>
+								<div id="pie"></div>
+							</div>
+							<div class="col s6">
+								<h6>Salary distribution</h6>
+								<div id="barchart"></div>
+							</div>
 						</div>
-
-	 				</div>
-
-	 				<div class="container center">
-	 					<div class="btn waves-effect waves-light" id="submitbutton">Train the model!</div>
-						<br><br><br>
-						<div class="preloader-wrapper big" style="display:none" id="loader">
-							<div class="spinner-layer spinner-blue">
-								<div class="circle-clipper left">
-									<div class="circle"></div>
-								</div>
-								<div class="gap-patch">
-									<div class="circle"></div>
-								</div>
-								<div class="circle-clipper right">
-									<div class="circle"></div>
-								</div>
+						<div class="row">
+							<div class="col s12">
+								<h5>Salary vs lenght of service</h5>
+								<div id="scatter"></div>
 							</div>
-
-							<div class="spinner-layer spinner-red">
-								<div class="circle-clipper left">
-									<div class="circle"></div>
-								</div>
-								<div class="gap-patch">
-									<div class="circle"></div>
-								</div>
-								<div class="circle-clipper right">
-									<div class="circle"></div>
-								</div>
+							<div class="col s12">
+								<h5>Job role vs lenght of service</h5>
+								<div id="barchart2"></div>
 							</div>
-
-							<div class="spinner-layer spinner-yellow">
-								<div class="circle-clipper left">
-									<div class="circle"></div>
-								</div>
-								<div class="gap-patch">
-									<div class="circle"></div>
-								</div>
-								<div class="circle-clipper right">
-									<div class="circle"></div>
-								</div>
-							</div>
-
-							<div class="spinner-layer spinner-green">
-								<div class="circle-clipper left">
-									<div class="circle"></div>
-								</div>
-								<div class="gap-patch">
-									<div class="circle"></div>
-								</div>
-								<div class="circle-clipper right">
-									<div class="circle"></div>
-								</div>
-							</div>
-
-						</div> <!-- preloader -->
-
-					</div> <!-- container interior -->
-					<br>
-				</div> <!-- container -->
-
-				<div class="container center" id="plots" style="display:none">
-					<h4>What about your data?</h4>
-					<br>
-					<div class="row">
-						<div class="col s6">
-							<h6>Age distribution</h6>
-							<div id="pie"></div>
-						</div>
-						<div class="col s6">
-							<h6>Salary distribution</h6>
-							<div id="barchart"></div>
 						</div>
 					</div>
-					<div class="row">
-						<div class="col s12">
-							<h5>Salary vs lenght of service</h5>
-							<div id="scatter"></div>
+					<div class ="section scrollspy" id ="model">
+						<h4>And about the model? </h4>
+						<div class="row">
+							<div class="col s12">
+								<h5>ROC AUC</h5>
+								<div id="area_chart"></div>
+							</div>
 						</div>
-						<div class="col s12">
-							<h5>Job role vs lenght of service</h5>
-							<div id="barchart2"></div>
-						</div>
-					</div>
-					<h4>And about the model? </h4>
-					<div class="row">
-						<div class="col s12">
-							<h5>ROC AUC</h5>
-							<div id="area_chart"></div>
-						</div>
-					</div>
-					<div class="row">
-						<h5>Metrics</h5>
-						<div class="col s4">
-							<div id="metric1"></div>
-						</div>
-						<div class="col s4">
-							<div id="metric2"></div>
-						</div>
-						<div class="col s4">
-							<div id="metric3"></div>
+						<div class="row">
+							<h5>Metrics</h5>
+							<div class="col s4">
+								<div id="metric1"></div>
+							</div>
+							<div class="col s4">
+								<div id="metric2"></div>
+							</div>
+							<div class="col s4">
+								<div id="metric3"></div>
+							</div>
 						</div>
 					</div>
 				</div>
 
+			</div>
+			<div class="col hide-on-small-only m3 l2">
+				<ul class="section table-of-contents">
+					<li><a href="#introduction">Introduction</a></li>
+					<li><a href="#needs">Needed data</a></li>
+					<li><a href="#uploadData">Upload historical data</a></li>
+					<li><a href="#about">About your data</a></li>
+					<li><a href="#model">About your new model</a></li>
+				</ul>
+			</div>
+		</div>
 				<!--<button id="submitbutton" type="button">Train model</button>-->
 
 				<div id="predict-swipe" class="col s12">Test 2

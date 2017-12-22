@@ -74,3 +74,11 @@ $("#submitbutton").on("click", function(){
 	});
 
 });
+
+$(document).ready(function(){
+    $('.scrollspy').scrollSpy();
+  });
+
+  function(id) {
+    return 'a[href="#' + id + '"]';
+  }
