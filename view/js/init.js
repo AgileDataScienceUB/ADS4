@@ -6,12 +6,21 @@
 
 	$('.modal').modal();
 
+	$('.scrollspy').scrollSpy();
+
 
 
   }); // end of document ready
+
+
+
 })(jQuery); // end of jQuery name space
 
-
+/*
+  function(id) {
+    return 'a[href="#' + id + '"]';
+  }
+  */
 
 function check(form) { /*function to check userid & password*/
 	/*the following code checkes whether the entered userid and password are matching*/
@@ -20,55 +29,59 @@ function check(form) { /*function to check userid & password*/
 		window.close()
 
 	}else {
-		window.alert("Wrong credentials, try again!");
+		window.alert("Wrong credentials, try again!")
 	}
 }
 
 
 //actual handler
 $("#submitbutton").on("click", function(){
-	alert("OK");
+	alert("OK")
+
 	$("#loader").show()
-	$("#plots").hide();
+	$("#plots").hide()
 
 	//arguments
-	var myfile = $("#csvfile")[0].files[0];
+	var myfile = $("#csvfile")[0].files[0]
+
 
 	if(!myfile){
-		alert("Please select a file");
+		alert("Please select a file")
 		return;
 	}
 
 	//disable the button during upload
 	$("#submitbutton").attr("disabled", "disabled");
 
-  var form = new FormData();
-  form.append("target", "Attrition");
-  form.append("file", myfile);
-  form.append("employee_id", "EmployeeNumber");
-  form.append("job_title", "JobRole");
-  form.append("age", "Age");
-  form.append("length_of_service", "YearsAtCompany");
+	var form = new FormData();
+
+	form.append("target", "Attrition");
+	form.append("file", myfile);
+	form.append("employee_id", "EmployeeNumber");
+	form.append("job_title", "JobRole");
+	form.append("age", "Age");
+	form.append("length_of_service", "YearsAtCompany");
 
 	var settings = {
-			"async": true,
-			"crossDomain": true,
-			"url": "http://34.243.4.122:3031/create-predictor",
-			"method": "POST",
-			"headers": {
-			"cache-control": "no-cache",
-			"postman-token": "890f1954-eb41-8e3d-90a0-7e6f5a284141"
-		},
+		"async": true,
+		"crossDomain": true,
+		"url": "http://34.242.49.190:3031/create-predictor",
+		"method": "POST",
+		"headers": {
+					"cache-control": "no-cache",
+					"postman-token": "890f1954-eb41-8e3d-90a0-7e6f5a284141"
+					},
 		"processData": false,
 		"contentType": false,
 		"mimeType": "multipart/form-data",
 		"data": form
 	}
 
-
+	alert("response?? "+myfile)
+	
 	$.ajax(settings).done(function (response) {
 		console.log(response);
-		alert("OK");
+		alert("OK, response done");
 		$("#loader").hide();
 		$("#submitbutton").removeAttr('disabled');
 		$("#plots").show();
@@ -77,13 +90,6 @@ $("#submitbutton").on("click", function(){
 
 });
 
-$(document).ready(function(){
-    $('.scrollspy').scrollSpy();
-  });
-
-  function(id) {
-    return 'a[href="#' + id + '"]';
-  }
 
 
 $("#prediction_button").on("click", function(){
@@ -112,7 +118,7 @@ $("#prediction_button").on("click", function(){
 	var settings_predict = {
 			"async": true,
 			"crossDomain": true,
-			"url": "http://34.243.4.122:3031/predict",
+			"url": "http://34.242.49.190:3031/predict",
 			"method": "POST",
 			"headers": {
 			"cache-control": "no-cache",
@@ -135,4 +141,39 @@ $("#prediction_button").on("click", function(){
 	});
 
 });
+
+function fixmetotop() {
+  var fixmeTop = $('.table-of-contents').offset().top;
+  $(window).scroll(function() {
+    //aktuelle Scrollposition auslesen
+    var currentScroll = $(window).scrollTop(),
+    //+1em rechnen
+    currentScroll = currentScroll + 15,
+    actualBottom = $('#bodybox').offset().top + $('#bodybox').outerHeight(true),
+    heightSideNav = $('.table-of-contents').outerHeight(true);
+    if (currentScroll >= fixmeTop && currentScroll <= actualBottom - heightSideNav) {
+      //CSS für fixed setzen
+      $('.table-of-contents').css({
+        position: 'fixed',
+        top: '0',
+        bottom: ''
+      });
+    } else {
+      if(currentScroll >= actualBottom - heightSideNav) {
+        $('.table-of-contents').css({
+          position: 'fixed',
+          bottom: '0',
+          top: ''
+        });
+      } else {
+        //CSS für nicht fixed setzen
+        $('.table-of-contents').css({
+          position: 'static',
+          bottom: '',
+          top: ''
+        });
+      }
+    }
+  });
+}
 
