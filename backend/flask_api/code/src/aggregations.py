@@ -17,6 +17,7 @@ def plotA1(df):
     "Returns path of a txt file with info about a Pie Plot"
     "First row contains title, then each line contains a layer and a percentage of a Pie Plot"
 
+    print df.head()
     age_lavel="Age" ## lavel with feature name of ages. it may be different depending on dataset!!
 
     title="Employees Ages"

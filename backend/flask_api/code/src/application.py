@@ -67,8 +67,8 @@ def upload():
 @application.route('/plotA1', methods=['GET'])
 @cross_origin()
 def service_plotA1():
+    application.logger.debug("PlotA1 start")
     historical_data_df = csv_to_df('data_train.csv')
-    print plotA1(historical_data_df)
     response = jsonify(plotA1(historical_data_df))
 
     # Managing response CORS
@@ -77,6 +77,7 @@ def service_plotA1():
     response.headers.add('Access-Control-Allow-Headers', 'x-requested-with, Content-Type, Accept-Encoding, Accept-Language, Cookie, Referer')
     response.headers.add('Access-Control-Allow-Credentials', 'true')
 
+    application.logger.debug("PlotA1 finnish")
     return response
 
 @application.route('/plotA2', methods=['GET'])
@@ -176,9 +177,8 @@ def service_plotB3():
 @cross_origin()
 def service_plotB4():
     prediction_scores = download_object("predict_score.obj")
-    historical_data_df = csv_to_df('data_test.csv')
     print plotB4(prediction_scores)
-    response = jsonify(plotB4(historical_data_df,prediction_scores))
+    response = jsonify(plotB4(prediction_scores))
 
     # Managing response CORS
     response.headers.add('Access-Control-Allow-Methods', 'POST, GET, OPTIONS, DELETE, PUT')
@@ -219,7 +219,7 @@ def create_predictor():
     if target is None or file is None:
         abort(400)
     # Save the training dataset
-    filename = 'data_test.csv'
+    filename = 'data_train.csv'
     upload_file(file, filename)
 
     # Train the model
@@ -266,7 +266,7 @@ def predict():
         or object_exists("scaler.obj") is False \
         or object_exists("valid_metrics.obj") is False:
         abort(400)
-    # Save the test dataset
+    #Save the test dataset
 
     filename = 'data_test.csv'
     employee_id = request.form.get("employee_id")
