@@ -28,15 +28,15 @@ services:
     depends_on:
       - flask_api
 
-  mongodb:
-    restart: always
-    image: mongo
-    networks:
-      - ADS4_network
-    volumes:
-      - ./backend/mongodb:/data/db
-    ports:
-      - 27017
+  # mongodb:
+  #   restart: always
+  #   image: mongo
+  #   networks:
+  #     - ADS4_network
+  #   volumes:
+  #     - ./backend/mongodb:/data/db
+  #   ports:
+  #     - 27017
 
 networks:
   ADS4_network:
