@@ -14,56 +14,52 @@
 
 	</head>
 	<body>
-		<nav class="white" role="navigation">
-		    <div class="nav-wrapper container">
-		      <a id="logo-container" href="index.html" class="light-green-text text-darken-3 brand-logo">focus2hit</a>
-		      <ul class="right hide-on-med-and-down">
-		        <li><a href="#">Contact</a></li>
-		        <li><a href="https://github.com/AgileDataScienceUB/ADS4/wiki">Tell me more</a></li>
-		        <li><a href="uploadData.html">Predict</a><li>
-				<li><a href="#">Plans & prices</a></li>
-				<li><a class='dropdown-button' href='#' data-activates='dropdown1'>Hello, Eloi</a></li>
-				<ul id='dropdown1' class='dropdown-content'>
-					<li><i class="large material-icons" align="center">account_circle</i></li>
-					<li><a href="index.html">Logout</a></li>
-				</ul>
-		      </ul>
+  		<div class="navbar-fixed">
+			<nav class="white fixed" role="navigation" id ="blocknav">
+			    <div class="nav-wrapper container">
+			      <a id="logo-container" href="index.html" class="light-green-text text-darken-3 brand-logo">focus2hit</a>
+			      <ul class="right hide-on-med-and-down">
+			        <li><a href="#">Contact</a></li>
+			        <li><a href="https://github.com/AgileDataScienceUB/ADS4/wiki">Tell me more</a></li>
+			        <li><a href="uploadData.html">Predict</a><li>
+					<li><a href="#">Plans & prices</a></li>
+					<li><a class='dropdown-button' href='#' data-activates='dropdown1'>Hello, Eloi</a></li>
+					<ul id='dropdown1' class='dropdown-content'>
+						<li><i class="large material-icons" align="center">account_circle</i></li>
+						<li><a href="index.html">Logout</a></li>
+					</ul>
+			      </ul>
 
-		      <ul id="nav-mobile" class="side-nav">
-		        <li><a href="#"></a></li>
-		      </ul>
-		      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
-		    </div>
-  		</nav>
+			      <ul id="nav-mobile" class="side-nav">
+			        <li><a href="#"></a></li>
+			      </ul>
+			      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+			    </div>
+			     		<div class="container" style="padding-right: 150px" id="swipes">
+			<ul id="tabs-swipe" class="tabs navbar-fixed fixed tabs-fixed-width grey lighten-3">
+				<li class="tab col s3"><a href="#train-swipe" class="active green-text text-darken-3">1. Upload your historical data</a></li>
+				<li class="tab col s3"><a href="#predict-swipe" class="green-text text-darken-3">2. Upload data to predict employee attrition</a></li>
+			</ul>
+		</div>
+  			</nav>
+  		</div>
 
-
-
-  		  <!-- HOME -->
-  		<div class="container">
-
-			<div class="row center">
-
-				<div class="row">
-					<div class="col s12">
-
-						<ul id="tabs-swipe" class="tabs tabs-fixed-width grey lighten-3">
-							<li class="tab col s3"><a href="#train-swipe" class="active green-text text-darken-3">1. Upload your historical data</a></li>
-							<li class="tab col s3"><a href="#predict-swipe" class="green-text text-darken-3">2. Upload data to predict employee attrition</a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-
-			<div id="train-swipe" class="col s12">
-				<div class="row">
-					<div class="col s12 m9 l10">
+  		<!-- HOME -->
+ 		
+				
+			<div id="train-swipe">
+			
+				<div class="row" style="padding-left: 140px">	
+					<div class="col s11 m8 l9">
 						<div class ="section scrollspy" id ="introduction">
+							<br>
+							<br>
 							<h4 class="center">Welcome to the first step of focus2hit!</h4>
 							<p> <br> Before anything else, we need you to upload here your historical data. With this data, we will build for you a predictor model to learn how your employees have behaved in the past. Make sure this data belongs to you and you can use it accordingly to <a href="http://www.agpd.es/portalwebAGPD/canaldocumentacion/informes_juridicos/reglamento_lopd/">LOPD</a>. <br> To make sure your predictor is the best we can build for you, try to add all attributes you can to complete your own data.<br> Don't worry if you don't have all.<br></p>
 						</div>
 						<div class ="section scrollspy" id ="needs">
 							<p>
-								The optimal attributes needed were:
+							The optimal attributes needed were:
 
 							<br>
 							<table class="highlight centered">
@@ -168,9 +164,9 @@
 										<input class="file-path validate" type="text" placeholder="Select your csv file...">
 									</div>
 
-				 				</div>
-				 				<div class="container center">
-				 					<div class="btn waves-effect waves-light" id="submitbutton">Train the model!</div>
+			 					</div>
+			 					<div class="container center">
+			 						<div class="btn waves-effect waves-light" id="submitbutton">Train the model!</div>
 									<br><br><br>
 									<div class="preloader-wrapper big" style="display:none" id="loader">
 										<div class="spinner-layer spinner-blue">
@@ -183,49 +179,49 @@
 											<div class="circle-clipper right">
 												<div class="circle"></div>
 											</div>
+									</div>
+
+									<div class="spinner-layer spinner-red">
+										<div class="circle-clipper left">
+											<div class="circle"></div>
 										</div>
-
-										<div class="spinner-layer spinner-red">
-											<div class="circle-clipper left">
-												<div class="circle"></div>
-											</div>
-											<div class="gap-patch">
-												<div class="circle"></div>
-											</div>
-											<div class="circle-clipper right">
-												<div class="circle"></div>
-											</div>
+										<div class="gap-patch">
+											<div class="circle"></div>
 										</div>
-
-										<div class="spinner-layer spinner-yellow">
-											<div class="circle-clipper left">
-												<div class="circle"></div>
-											</div>
-											<div class="gap-patch">
-												<div class="circle"></div>
-											</div>
-											<div class="circle-clipper right">
-												<div class="circle"></div>
-											</div>
+										<div class="circle-clipper right">
+											<div class="circle"></div>
 										</div>
+									</div>
 
-										<div class="spinner-layer spinner-green">
-											<div class="circle-clipper left">
-												<div class="circle"></div>
-											</div>
-											<div class="gap-patch">
-												<div class="circle"></div>
-											</div>
-											<div class="circle-clipper right">
-												<div class="circle"></div>
-											</div>
+									<div class="spinner-layer spinner-yellow">
+										<div class="circle-clipper left">
+											<div class="circle"></div>
 										</div>
+										<div class="gap-patch">
+											<div class="circle"></div>
+										</div>
+										<div class="circle-clipper right">
+											<div class="circle"></div>
+										</div>
+									</div>
 
-									</div> <!-- preloader -->
+									<div class="spinner-layer spinner-green">
+										<div class="circle-clipper left">
+											<div class="circle"></div>
+										</div>
+										<div class="gap-patch">
+											<div class="circle"></div>
+										</div>
+										<div class="circle-clipper right">
+											<div class="circle"></div>
+										</div>
+									</div>
 
-								</div> <!-- container interior -->
-								<br>
-							</div> <!-- container -->
+								</div> <!-- preloader -->
+
+							</div> <!-- container interior -->
+							<br>
+						</div> <!-- container -->
 						</div>
 
 						<div class="container center" id="plots">
@@ -274,9 +270,10 @@
 									</div>
 								</div>
 							</div>
-						</div>
+						</div> <!-- plots -->
 					</div>
-					<div class="col hide-on-small-only m3 l2">
+
+					<div class="col s12 hide-on-small-only m3 l3">
 						<ul class="section table-of-contents">
 							<li><a href="#introduction">Introduction</a></li>
 							<li><a href="#needs">Needed data</a></li>
@@ -284,38 +281,38 @@
 							<li><a href="#about">About your data</a></li>
 							<li><a href="#model">About your new model</a></li>
 						</ul>
-					</div>
-				
-				</div> <!-- row close -->
-				<!--<button id="submitbutton" type="button">Train model</button>-->
-				<!--<button id="prediction_button" type="button">Train model</button>-->
+					</div> <!-- div section table spy -->
+				</div> <!-- row section + container 1 -->
+	
+			</div> <!-- train-swipe col-->
 
-			</div> <!-- train-swipe-->
+			<div id="predict-swipe">
+				<div class="row" style="padding-left: 140px">	
+					<div class="col s11 m8 l9">
+						<div class ="section scrollspy" id ="introduction2">
+					<br><br><br>
+					<h4 class="center">Now let's made new predictions</h4>
+					<p> In this second step you can upload new data without result to know the proabilities of your current employees.
+					<br>
+					<div class="row file-field input-field">
+						<a class="btn">
+							<i class="material-icons large">folder_open</i>
+							<input id="prediction_csv" type="file">
+						</a>
+						<div class="file-path-wrapper">
+							<input class="file-path validate" placeholder="Select your csv file..." type="text">
+						</div>
 
-				<div id="predict-swipe" class="col s12">
-					<div class="container center">
-						<h4 class="center">Now let's made new predictions</h4>
-						<p> In this second step you can upload new data without result to know the proabilities of your current employees.
-						<br>
-						<div class="row file-field input-field">
-							<a class="btn">
-								<i class="material-icons large">folder_open</i>
-								<input id="prediction_csv" type="file">
-							</a>
-							<div class="file-path-wrapper">
-								<input class="file-path validate" placeholder="Select your csv file..." type="text">
-							</div>
-
-		 				</div>
-						<div class = "row">
-							<div class = "container center">
-								<div class="btn waves-effect waves-light" id="prediction_button">Make a prediction!</div>
-							</div>
+	 				</div>
+					<div class = "row">
+						<div class = "container center">
+							<div class="btn waves-effect waves-light" id="prediction_button">Make a prediction!</div>
 						</div>
 					</div>
 				</div>
-		</div><!--container-->
-
+			</div>
+		</div>
+			</div> <!--predict swipe -->
  <!-- END HOME -->
 
 

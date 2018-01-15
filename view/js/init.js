@@ -5,6 +5,11 @@
     $('.parallax').parallax();
 
 	$('.modal').modal();
+	$('.table-of-contents').pushpin({
+		top: 80,
+		//bottom: 200,
+		offset: 50
+	});
 
 	$('.scrollspy').scrollSpy();
 
@@ -33,10 +38,9 @@ function check(form) { /*function to check userid & password*/
 	}
 }
 
-
+        
 //actual handler
 $("#submitbutton").on("click", function(){
-	alert("OK")
 
 	$("#loader").show()
 	$("#plots").hide()
@@ -65,7 +69,7 @@ $("#submitbutton").on("click", function(){
 	var settings = {
 		"async": true,
 		"crossDomain": true,
-		"url": "http://34.242.49.190:3031/create-predictor",
+		"url": "http://34.242.186.183:3031/create-predictor",
 		"method": "POST",
 		"headers": {
 					"cache-control": "no-cache",
@@ -77,11 +81,8 @@ $("#submitbutton").on("click", function(){
 		"data": form
 	}
 
-	alert("response?? "+myfile)
-	
-	$.ajax(settings).done(function (response) {
+	$.ajax(settings).done(function(response) {
 		console.log(response);
-		alert("OK, response done");
 		$("#loader").hide();
 		$("#submitbutton").removeAttr('disabled');
 		$("#plots").show();
@@ -118,7 +119,7 @@ $("#prediction_button").on("click", function(){
 	var settings_predict = {
 			"async": true,
 			"crossDomain": true,
-			"url": "http://34.242.49.190:3031/predict",
+			"url": "http://34.242.186.183:3031/predict",
 			"method": "POST",
 			"headers": {
 			"cache-control": "no-cache",
@@ -142,38 +143,4 @@ $("#prediction_button").on("click", function(){
 
 });
 
-function fixmetotop() {
-  var fixmeTop = $('.table-of-contents').offset().top;
-  $(window).scroll(function() {
-    //aktuelle Scrollposition auslesen
-    var currentScroll = $(window).scrollTop(),
-    //+1em rechnen
-    currentScroll = currentScroll + 15,
-    actualBottom = $('#bodybox').offset().top + $('#bodybox').outerHeight(true),
-    heightSideNav = $('.table-of-contents').outerHeight(true);
-    if (currentScroll >= fixmeTop && currentScroll <= actualBottom - heightSideNav) {
-      //CSS für fixed setzen
-      $('.table-of-contents').css({
-        position: 'fixed',
-        top: '0',
-        bottom: ''
-      });
-    } else {
-      if(currentScroll >= actualBottom - heightSideNav) {
-        $('.table-of-contents').css({
-          position: 'fixed',
-          bottom: '0',
-          top: ''
-        });
-      } else {
-        //CSS für nicht fixed setzen
-        $('.table-of-contents').css({
-          position: 'static',
-          bottom: '',
-          top: ''
-        });
-      }
-    }
-  });
-}
 

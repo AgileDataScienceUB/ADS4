@@ -16,7 +16,7 @@ var pie = c3.generate({
 });
 
 
-$.getJSON('http://34.243.4.122:3031/plotA3', function(data3) {
+$.getJSON('http://34.242.186.183:3031/plotA3', function(data3) {
     //data is the JSON string
     var scatter = c3.generate({
         bindto: '#scatter',

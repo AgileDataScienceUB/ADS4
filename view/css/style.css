@@ -85,3 +85,11 @@ i.icon-black {
   background-color: #2e7d32;
   will-change: left, right;
 }
+
+.table-of-contents a.active {
+  color: #e57373;
+}
+
+
+
+
