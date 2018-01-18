@@ -8,7 +8,7 @@
 	$('.table-of-contents').pushpin({
 		top: 80,
 		//bottom: 200,
-		offset: 50
+		offset: 70
 	});
 
 	$('.scrollspy').scrollSpy();

@@ -17,168 +17,168 @@
   		<div class="navbar-fixed">
 			<nav class="white fixed" role="navigation" id ="blocknav">
 			    <div class="nav-wrapper container">
-			      <a id="logo-container" href="index.html" class="light-green-text text-darken-3 brand-logo">focus2hit</a>
-			      <ul class="right hide-on-med-and-down">
-			        <li><a href="#">Contact</a></li>
-			        <li><a href="https://github.com/AgileDataScienceUB/ADS4/wiki">Tell me more</a></li>
-			        <li><a href="uploadData.html">Predict</a><li>
+					<a id="logo-container" href="index.html" class="light-green-text text-darken-3 brand-logo">focus2hit</a>
+					<ul class="right hide-on-med-and-down">
+					<li><a href="#">Contact</a></li>
+					<li><a href="https://github.com/AgileDataScienceUB/ADS4/wiki">Tell me more</a></li>
+					<li><a href="uploadData.html">Predict</a><li>
 					<li><a href="#">Plans & prices</a></li>
 					<li><a class='dropdown-button' href='#' data-activates='dropdown1'>Hello, Eloi</a></li>
 					<ul id='dropdown1' class='dropdown-content'>
 						<li><i class="large material-icons" align="center">account_circle</i></li>
 						<li><a href="index.html">Logout</a></li>
 					</ul>
-			      </ul>
+					</ul>
 
-			      <ul id="nav-mobile" class="side-nav">
-			        <li><a href="#"></a></li>
-			      </ul>
-			      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+					<ul id="nav-mobile" class="side-nav">
+					<li><a href="#"></a></li>
+					</ul>
+					<a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
 			    </div>
-			     		<div class="container" style="padding-right: 150px" id="swipes">
-			<ul id="tabs-swipe" class="tabs navbar-fixed fixed tabs-fixed-width grey lighten-3">
-				<li class="tab col s3"><a href="#train-swipe" class="active green-text text-darken-3">1. Upload your historical data</a></li>
-				<li class="tab col s3"><a href="#predict-swipe" class="green-text text-darken-3">2. Upload data to predict employee attrition</a></li>
-			</ul>
-		</div>
+	     		<div class="container" style="padding-right: 150px" id="swipes">
+					<ul id="tabs-swipe" class="tabs navbar-fixed fixed tabs-fixed-width grey lighten-3">
+						<li class="tab col s3"><a href="#train-swipe" class="active green-text text-darken-3">1. Upload your historical data</a></li>
+						<li class="tab col s3"><a href="#predict-swipe" class="green-text text-darken-3">2. Upload data to predict employee attrition</a></li>
+					</ul>
+				</div>
   			</nav>
   		</div>
 
   		<!-- HOME -->
  		
 				
-			<div id="train-swipe">
-			
-				<div class="row" style="padding-left: 140px">	
-					<div class="col s11 m8 l9">
-						<div class ="section scrollspy" id ="introduction">
-							<br>
-							<br>
-							<h4 class="center">Welcome to the first step of focus2hit!</h4>
-							<p> <br> Before anything else, we need you to upload here your historical data. With this data, we will build for you a predictor model to learn how your employees have behaved in the past. Make sure this data belongs to you and you can use it accordingly to <a href="http://www.agpd.es/portalwebAGPD/canaldocumentacion/informes_juridicos/reglamento_lopd/">LOPD</a>. <br> To make sure your predictor is the best we can build for you, try to add all attributes you can to complete your own data.<br> Don't worry if you don't have all.<br></p>
-						</div>
-						<div class ="section scrollspy" id ="needs">
-							<p>
-							The optimal attributes needed were:
+		<div id="train-swipe">
+		
+			<div class="row" style="padding-left: 140px">	
+				<div class="col s10 m7 l9">
+					<div class ="section scrollspy" id ="introduction">
+						<br>
+						<br>
+						<h4 class="center">Welcome to the first step of focus2hit!</h4>
+						<p> <br> Before anything else, we need you to upload here your historical data. With this data, we will build for you a predictor model to learn how your employees have behaved in the past. Make sure this data belongs to you and you can use it accordingly to <a href="http://www.agpd.es/portalwebAGPD/canaldocumentacion/informes_juridicos/reglamento_lopd/">LOPD</a>. <br> To make sure your predictor is the best we can build for you, try to add all attributes you can to complete your own data.<br> Don't worry if you don't have all.<br></p>
+					</div>
+					<div class ="section scrollspy" id ="needs">
+						<p>
+						The optimal attributes needed were:
 
-							<br>
-							<table class="highlight centered">
-								<thead>
-								  <tr>
-								      <th>Name</th>
-								      <th>Attribute Description</th>
-								      <th>Type of attribute</th>
-								      <th>Mandatory?</th>
-								  </tr>
-								</thead>
+						<br>
+						<table class="highlight centered">
+							<thead>
+							  <tr>
+							      <th>Name</th>
+							      <th>Attribute Description</th>
+							      <th>Type of attribute</th>
+							      <th>Mandatory?</th>
+							  </tr>
+							</thead>
 
-								<tbody>
-							  		<tr>
-										<td>EmployeeID</td>
-										<td>Integer identifying an employee</td>
-										<td>Integer</td>
-										<td>No</td>
-									</tr>
-									<tr>
-										<td>Record id</td>
-										<td>Integer identifying a unique row of our final dataset</td>
-										<td>Integer</td>
-										<td>No</td>
-									</tr>
-									<tr>
-										<td>Hire date</td>
-										<td>Date of hire of the employee</td>
-										<td>Date</td>
-										<td>No</td>
-									</tr>
-									<tr>
-										<td>Record date</td>
-										<td>Date of the registration of the employee in the dataset</td>
-										<td>Date</td>
-										<td>No</td>
-									</tr>
-									<tr>
-										<td>Termination date</td>
-										<td>Date of termination of the employee (it can be a default date if he's still working</td>
-										<td>Date</td>
-										<td>No</td>
-									</tr>
-									<tr>
-										<td>Length of service</td>
-										<td>Integer expressing the years from hiring to record date</td>
-										<td>Integer</td>
-										<td>No</td>
-									</tr>
-									<tr>
-										<td>Age</td>
-										<td>Integer referring to the age of the employee</td>
-										<td>Integer</td>
-										<td>No</td>
-									</tr>
-									<tr>
-										<td>Target</td>
-										<td>Boolean expressing our class value. It can assume value 1 if an employee is likely to leave, 0 otherwise</td>
-										<td>Boolean</td>
-										<td>Yes</td>
-									</tr>
-									<tr>
-										<td>Other target fields</td>
-										<td>List of other fields related to our target value</td>
-										<td>List</td>
-										<td>No</td>
-									</tr>
-									<tr>
-										<td>Job title</td>
-										<td>Role of the employee in the organization</td>
-										<td>String</td>
-										<td>No</td>
-									</tr>
-									<tr>
-										<td>Salary</td>
-										<td>Monthly income of an employee</td>
-										<td>Integer</td>
-										<td>No</td>
-									</tr>
-									<tr>
-										<td>Special field types</td>
-										<td>Contact us to add another fields</td>
-										<td>List</td>
-										<td>No</td>
-									</tr>
-								</tbody>
-							</table>
+							<tbody>
+						  		<tr>
+									<td>EmployeeID</td>
+									<td>Integer identifying an employee</td>
+									<td>Integer</td>
+									<td>No</td>
+								</tr>
+								<tr>
+									<td>Record id</td>
+									<td>Integer identifying a unique row of our final dataset</td>
+									<td>Integer</td>
+									<td>No</td>
+								</tr>
+								<tr>
+									<td>Hire date</td>
+									<td>Date of hire of the employee</td>
+									<td>Date</td>
+									<td>No</td>
+								</tr>
+								<tr>
+									<td>Record date</td>
+									<td>Date of the registration of the employee in the dataset</td>
+									<td>Date</td>
+									<td>No</td>
+								</tr>
+								<tr>
+									<td>Termination date</td>
+									<td>Date of termination of the employee (it can be a default date if he's still working</td>
+									<td>Date</td>
+									<td>No</td>
+								</tr>
+								<tr>
+									<td>Length of service</td>
+									<td>Integer expressing the years from hiring to record date</td>
+									<td>Integer</td>
+									<td>No</td>
+								</tr>
+								<tr>
+									<td>Age</td>
+									<td>Integer referring to the age of the employee</td>
+									<td>Integer</td>
+									<td>No</td>
+								</tr>
+								<tr>
+									<td>Target</td>
+									<td>Boolean expressing our class value. It can assume value 1 if an employee is likely to leave, 0 otherwise</td>
+									<td>Boolean</td>
+									<td>Yes</td>
+								</tr>
+								<tr>
+									<td>Other target fields</td>
+									<td>List of other fields related to our target value</td>
+									<td>List</td>
+									<td>No</td>
+								</tr>
+								<tr>
+									<td>Job title</td>
+									<td>Role of the employee in the organization</td>
+									<td>String</td>
+									<td>No</td>
+								</tr>
+								<tr>
+									<td>Salary</td>
+									<td>Monthly income of an employee</td>
+									<td>Integer</td>
+									<td>No</td>
+								</tr>
+								<tr>
+									<td>Special field types</td>
+									<td>Contact us to add another fields</td>
+									<td>List</td>
+									<td>No</td>
+								</tr>
+							</tbody>
+						</table>
 
-							<br>
-							</p>
-						</div>
+						<br>
+						</p>
+					</div>
 
-						<div class="container">
-							<div class ="section scrollspy" id ="uploadData">
-								<h4 class="center">OK! Let's now upload your historical data</h4>
-								<div class="row file-field input-field">
-									<a class="btn">
-										<i class="material-icons large">folder_open</i>
-										<input type="file" id="csvfile">
-									</a>
-									<div class="file-path-wrapper">
-										<input class="file-path validate" type="text" placeholder="Select your csv file...">
-									</div>
+					<div class="container">
+						<div class ="section scrollspy" id ="uploadData">
+							<h4 class="center">OK! Let's now upload your historical data</h4>
+							<div class="row file-field input-field">
+								<a class="btn">
+									<i class="material-icons large">folder_open</i>
+									<input type="file" id="csvfile">
+								</a>
+								<div class="file-path-wrapper">
+									<input class="file-path validate" type="text" placeholder="Select your csv file...">
+								</div>
 
-			 					</div>
-			 					<div class="container center">
-			 						<div class="btn waves-effect waves-light" id="submitbutton">Train the model!</div>
-									<br><br><br>
-									<div class="preloader-wrapper big" style="display:none" id="loader">
-										<div class="spinner-layer spinner-blue">
-											<div class="circle-clipper left">
-												<div class="circle"></div>
-											</div>
-											<div class="gap-patch">
-												<div class="circle"></div>
-											</div>
-											<div class="circle-clipper right">
-												<div class="circle"></div>
-											</div>
+		 					</div>
+		 					<div class="container center">
+		 						<div class="btn waves-effect waves-light" id="submitbutton">Train the model!</div>
+								<br><br><br>
+								<div class="preloader-wrapper big" style="display:none" id="loader">
+									<div class="spinner-layer spinner-blue">
+										<div class="circle-clipper left">
+											<div class="circle"></div>
+										</div>
+										<div class="gap-patch">
+											<div class="circle"></div>
+										</div>
+										<div class="circle-clipper right">
+											<div class="circle"></div>
+										</div>
 									</div>
 
 									<div class="spinner-layer spinner-red">
@@ -220,71 +220,87 @@
 								</div> <!-- preloader -->
 
 							</div> <!-- container interior -->
-							<br>
-						</div> <!-- container -->
 						</div>
+					</div>
+					
 
-						<div class="container center" id="plots">
+						<div class="center" id="plots" style="display:none">
 							<div class ="section scrollspy" id ="about">
-								<h4>What about your data?</h4>
-								<br>
-								<div class="row">
-									<div class="col s6">
-										<h6>Age distribution</h6>
-										<div id="pie"></div>
-									</div>
-									<div class="col s6">
-										<h6>Salary distribution</h6>
-										<div id="barchart"></div>
-									</div>
+								<!--<h4 class="center">What about your data?</h4>-->
+					    		<div class="card-panel green darken-3 "> 
+  									<span class="white-text">
+  										<i class="large material-icons">camera_alt</i>
+											<h4>What about your data?</h4>
+  									</span>
 								</div>
-								<div class="row">
-									<div class="col s12">
-										<h5>Salary vs lenght of service</h5>
-										<div id="scatter"></div>
+								<!-- <div class ="container center"> -->
+
+
+						  			<div class = "container center">
+										<div class="row">
+											<div class="col s6">
+												<h5>Age distribution</h5>
+												<div id="pie center"></div>
+											</div>
+											<div class="col s6">
+												<h5>Salary distribution</h5>
+												<div id="barchart"></div>
+											</div>
+										</div>
 									</div>
-									<div class="col s12">
+												<h5 class="center">Salary vs lenght of service</h5>
+												<div class="center" id="scatter">
+													
+												</div>
+											
+							
+									
 										<h5>Job role vs lenght of service</h5>
 										<div id="barchart2"></div>
-									</div>
+								
 								</div>
-							</div>
-							<div class ="section scrollspy" id ="model">
-								<h4>And about the model? </h4>
-								<div class="row">
-									<div class="col s12">
-										<h5>ROC AUC</h5>
-										<div id="area_chart"></div>
+								<div class ="section scrollspy" id ="model">
+						    		<div class="card-panel green darken-3">
+      									<span class="white-text">
+      										<i class="large material-icons">thumbs_up_down</i>
+  											<h4>And about the model?</h4>
+      									</span>
 									</div>
-								</div>
-								<div class="row">
-									<h5>Metrics</h5>
-									<div class="col s4">
-										<div id="metric1"></div>
-									</div>
-									<div class="col s4">
-										<div id="metric2"></div>
-									</div>
-									<div class="col s4">
-										<div id="metric3"></div>
-									</div>
-								</div>
-							</div>
-						</div> <!-- plots -->
-					</div>
+							  		
+										
+												<h5 class="center">ROC AUC</h5>
+												<div class="center" id="area_chart"></div>
+							
 
-					<div class="col s12 hide-on-small-only m3 l3">
-						<ul class="section table-of-contents">
-							<li><a href="#introduction">Introduction</a></li>
-							<li><a href="#needs">Needed data</a></li>
-							<li><a href="#uploadData">Upload historical data</a></li>
-							<li><a href="#about">About your data</a></li>
-							<li><a href="#model">About your new model</a></li>
-						</ul>
-					</div> <!-- div section table spy -->
-				</div> <!-- row section + container 1 -->
-	
-			</div> <!-- train-swipe col-->
+									<div class="divider"></div>
+										<div class="row">
+											<h5>Metrics</h5>
+											<div class="col s6">
+												<h6>False positive rate</h6>
+												<div id="gauge"></div>
+											</div>
+											<div class="col s6">
+												<h6>True positive rate</h6>
+												<div id="gauge2"></div>
+											</div>
+									<!--</div> -->
+							</div> <!-- plots -->
+						</div> <!-- container -->
+					</div> <!-- col  -->
+				</div>
+
+
+				<div class="col s12 hide-on-small-only m6 l3">
+					<ul class="section table-of-contents">
+						<li><a href="#introduction">Introduction</a></li>
+						<li><a href="#needs">Needed data</a></li>
+						<li><a href="#uploadData">Upload historical data</a></li>
+						<li><a href="#about">About your data</a></li>
+						<li><a href="#model">About your new model</a></li>
+					</ul>
+				</div> <!-- div section table spy -->
+			</div> <!-- row section + container 1 -->
+		</div> <!-- train-swipe col-->
 
 			<div id="predict-swipe">
 				<div class="row" style="padding-left: 140px">	

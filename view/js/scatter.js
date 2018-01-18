@@ -1,221 +1,274 @@
 
-var pie = c3.generate({
-    bindto: '#pie',
-    data: {
-        // iris data from R
-        columns: [
-            ['Age [18-30)', 30],
-            ['Age [30-50)', 120],
-            ['Age >=50)', 120],
-        ],
-        type : 'pie',
-        onclick: function (d, i) { console.log("onclick", d, i); },
-        onmouseover: function (d, i) { console.log("onmouseover", d, i); },
-        onmouseout: function (d, i) { console.log("onmouseout", d, i); }
-    }
-});
+$.getJSON('http://34.242.186.183:3031/plotA1', function(data1) {
+    //alert(data1["values"][0][0])
+    var pie = c3.generate({
+        bindto: '#pie',
+        data: {
+            // iris data from R
+            columns: [
+                [data1["values"][0][0], data1["values"][1][0]],
+                [data1["values"][0][1], data1["values"][1][1]],
+                [data1["values"][0][2], data1["values"][1][2]],
+            ],
+            type : 'pie',
+            onclick: function (d, i) { console.log("onclick", d, i); },
+            onmouseover: function (d, i) { console.log("onmouseover", d, i); },
+            onmouseout: function (d, i) { console.log("onmouseout", d, i); }
+        }
+    });
 
+});
 
 $.getJSON('http://34.242.186.183:3031/plotA3', function(data3) {
     //data is the JSON string
+    //alert(data3["values"][0])
+    //alert(data3["values"][1])
+
+    var modData3 = ['salary'];
+    data3["values"][0].forEach(function(d) {
+        //alert(d)
+        modData3.push(d);
+    });
+
+    var results3 = ['lenght'];
+    data3["values"][1].forEach(function(d) {
+        results3.push(d);
+    });
+
     var scatter = c3.generate({
         bindto: '#scatter',
         data: {
+
         xs: {
-            setosa: 'setosa_x',
-            versicolor: 'versicolor_x',
+            salary: 'lenght'
         },
         // iris data from R
         columns: [
-            ["setosa_x", 3.5, 3.0, 3.2, 3.1, 3.6, 3.9, 3.4, 3.4, 2.9, 3.1, 3.7, 3.4, 3.0, 3.0, 4.0, 4.4, 3.9, 3.5, 3.8, 3.8, 3.4, 3.7, 3.6, 3.3, 3.4, 3.0, 3.4, 3.5, 3.4, 3.2, 3.1, 3.4, 4.1, 4.2, 3.1, 3.2, 3.5, 3.6, 3.0, 3.4, 3.5, 2.3, 3.2, 3.5, 3.8, 3.0, 3.8, 3.2, 3.7, 3.3],
-            ["versicolor_x", 3.2, 3.2, 3.1, 2.3, 2.8, 2.8, 3.3, 2.4, 2.9, 2.7, 2.0, 3.0, 2.2, 2.9, 2.9, 3.1, 3.0, 2.7, 2.2, 2.5, 3.2, 2.8, 2.5, 2.8, 2.9, 3.0, 2.8, 3.0, 2.9, 2.6, 2.4, 2.4, 2.7, 2.7, 3.0, 3.4, 3.1, 2.3, 3.0, 2.5, 2.6, 3.0, 2.6, 2.3, 2.7, 3.0, 2.9, 2.9, 2.5, 2.8],
-            ["setosa", 0.2, 0.2, 0.2, 0.2, 0.2, 0.4, 0.3, 0.2, 0.2, 0.1, 0.2, 0.2, 0.1, 0.1, 0.2, 0.4, 0.4, 0.3, 0.3, 0.3, 0.2, 0.4, 0.2, 0.5, 0.2, 0.2, 0.4, 0.2, 0.2, 0.2, 0.2, 0.4, 0.1, 0.2, 0.2, 0.2, 0.2, 0.1, 0.2, 0.2, 0.3, 0.3, 0.2, 0.6, 0.4, 0.3, 0.2, 0.2, 0.2, 0.2],
-            ["versicolor", 1.4, 1.5, 1.5, 1.3, 1.5, 1.3, 1.6, 1.0, 1.3, 1.4, 1.0, 1.5, 1.0, 1.4, 1.3, 1.4, 1.5, 1.0, 1.5, 1.1, 1.8, 1.3, 1.5, 1.2, 1.3, 1.4, 1.4, 1.7, 1.5, 1.0, 1.1, 1.0, 1.2, 1.6, 1.5, 1.6, 1.5, 1.3, 1.3, 1.3, 1.2, 1.4, 1.2, 1.0, 1.3, 1.2, 1.3, 1.3, 1.1, 1.3],
+            results3,
+            modData3
+            
         ],
         type: 'scatter'
         },
         axis: {
             x: {
-                label: data3["layer-x"],
+                label: data3["layer-y"],
                 tick: {
                     fit: false
                 }
             },
             y: {
-                label: data3["layer-y"]
+                label: data3["layer-x"]
             }
+        },
+
+        legend: {
+            show: false
         },
     });
 
 });
 
 
-var metric1 = c3.generate({
-    bindto: '#metric1',
-    data: {
-        // iris data from R
-        columns: [
-            ['Accuracy', 30],
-            ['data2', 120],
-        ],
-        type : 'pie',
-        onclick: function (d, i) { console.log("onclick", d, i); },
-        onmouseover: function (d, i) { console.log("onmouseover", d, i); },
-        onmouseout: function (d, i) { console.log("onmouseout", d, i); }
-    }
-});
-
-
-var metric2 = c3.generate({
-    bindto: '#metric2',
-    data: {
-        // iris data from R
-        columns: [
-            ['data1', 30],
-            ['data2', 120],
-        ],
-        type : 'pie',
-        onclick: function (d, i) { console.log("onclick", d, i); },
-        onmouseover: function (d, i) { console.log("onmouseover", d, i); },
-        onmouseout: function (d, i) { console.log("onmouseout", d, i); }
-    }
-});
-
-setTimeout(function () {
-    metric2.load({
-        columns: [
-            ["setosa", 0.2, 0.2, 0.2, 0.2, 0.2, 0.4, 0.3, 0.2, 0.2, 0.1, 0.2, 0.2, 0.1, 0.1, 0.2, 0.4, 0.4, 0.3, 0.3, 0.3, 0.2, 0.4, 0.2, 0.5, 0.2, 0.2, 0.4, 0.2, 0.2, 0.2, 0.2, 0.4, 0.1, 0.2, 0.2, 0.2, 0.2, 0.1, 0.2, 0.2, 0.3, 0.3, 0.2, 0.6, 0.4, 0.3, 0.2, 0.2, 0.2, 0.2],
-            ["versicolor", 1.4, 1.5, 1.5, 1.3, 1.5, 1.3, 1.6, 1.0, 1.3, 1.4, 1.0, 1.5, 1.0, 1.4, 1.3, 1.4, 1.5, 1.0, 1.5, 1.1, 1.8, 1.3, 1.5, 1.2, 1.3, 1.4, 1.4, 1.7, 1.5, 1.0, 1.1, 1.0, 1.2, 1.6, 1.5, 1.6, 1.5, 1.3, 1.3, 1.3, 1.2, 1.4, 1.2, 1.0, 1.3, 1.2, 1.3, 1.3, 1.1, 1.3],
-            ["virginica", 2.5, 1.9, 2.1, 1.8, 2.2, 2.1, 1.7, 1.8, 1.8, 2.5, 2.0, 1.9, 2.1, 2.0, 2.4, 2.3, 1.8, 2.2, 2.3, 1.5, 2.3, 2.0, 2.0, 1.8, 2.1, 1.8, 1.8, 1.8, 2.1, 1.6, 1.9, 2.0, 2.2, 1.5, 1.4, 2.3, 2.4, 1.8, 1.8, 2.1, 2.4, 2.3, 1.9, 2.3, 2.5, 2.3, 1.9, 2.0, 2.3, 1.8],
-        ]
-    });
-}, 1500);
-
-setTimeout(function () {
-    metric2.unload({
-        ids: 'data1'
-    });
-    metric2.unload({
-        ids: 'data2'
-    });
-}, 2500);
-
-
-var metric3 = c3.generate({
-    bindto: '#metric3',
-    data: {
-        // iris data from R
-        columns: [
-            ['data1', 30],
-            ['data2', 120],
-        ],
-        type : 'pie',
-        onclick: function (d, i) { console.log("onclick", d, i); },
-        onmouseover: function (d, i) { console.log("onmouseover", d, i); },
-        onmouseout: function (d, i) { console.log("onmouseout", d, i); }
-    }
-});
-
-setTimeout(function () {
-    metric3.load({
-        columns: [
-            ["setosa", 0.2, 0.2, 0.2, 0.2, 0.2, 0.4, 0.3, 0.2, 0.2, 0.1, 0.2, 0.2, 0.1, 0.1, 0.2, 0.4, 0.4, 0.3, 0.3, 0.3, 0.2, 0.4, 0.2, 0.5, 0.2, 0.2, 0.4, 0.2, 0.2, 0.2, 0.2, 0.4, 0.1, 0.2, 0.2, 0.2, 0.2, 0.1, 0.2, 0.2, 0.3, 0.3, 0.2, 0.6, 0.4, 0.3, 0.2, 0.2, 0.2, 0.2],
-            ["versicolor", 1.4, 1.5, 1.5, 1.3, 1.5, 1.3, 1.6, 1.0, 1.3, 1.4, 1.0, 1.5, 1.0, 1.4, 1.3, 1.4, 1.5, 1.0, 1.5, 1.1, 1.8, 1.3, 1.5, 1.2, 1.3, 1.4, 1.4, 1.7, 1.5, 1.0, 1.1, 1.0, 1.2, 1.6, 1.5, 1.6, 1.5, 1.3, 1.3, 1.3, 1.2, 1.4, 1.2, 1.0, 1.3, 1.2, 1.3, 1.3, 1.1, 1.3],
-            ["virginica", 2.5, 1.9, 2.1, 1.8, 2.2, 2.1, 1.7, 1.8, 1.8, 2.5, 2.0, 1.9, 2.1, 2.0, 2.4, 2.3, 1.8, 2.2, 2.3, 1.5, 2.3, 2.0, 2.0, 1.8, 2.1, 1.8, 1.8, 1.8, 2.1, 1.6, 1.9, 2.0, 2.2, 1.5, 1.4, 2.3, 2.4, 1.8, 1.8, 2.1, 2.4, 2.3, 1.9, 2.3, 2.5, 2.3, 1.9, 2.0, 2.3, 1.8],
-        ]
-    });
-}, 1500);
-
-setTimeout(function () {
-    metric3.unload({
-        ids: 'data1'
-    });
-    metric3.unload({
-        ids: 'data2'
-    });
-}, 2500);
-
-
-$.getJSON('http://34.243.4.122:3031/plotB1', function(data2) {
+$.getJSON('http://34.242.186.183:3031/plotA2', function(data2) {
     //data is the JSON string
+    //alert(data2["values"][0])
+    //alert(data2["values"][1])
 
+    var modData2 = ['x'];
+    data2["values"][0].forEach(function(d) {
+        //alert(d)
+        modData2.push(d);
+    });
+
+    var results2 = [data2["layer-y"]];
+    data2["values"][1].forEach(function(d) {
+        results2.push(d);
+    });
+
+    //alert(results2)
     var barchart = c3.generate({
     bindto: '#barchart',
     data: {
+
+        x: 'x',
         columns: [
-            ['data1', 30, 200, 100, 400, 150, 250],
-            ['data2', 130, 100, 140, 200, 150, 50]
+
+            modData2,
+            results2
         ],
         type: 'bar'
     },
     bar: {
         width: {
-            ratio: 0.5 // this makes bar width 50% of length between ticks
+            ratio: 0.3 // this makes bar width 50% of length between ticks
         }
         // or
         //width: 100 // this makes bar width 100px
     },
+    
      axis: {
+            rotated: true,
             x: {
                 label: data2["layer-x"],
                 tick: {
-                    fit: false
+                    values: ['1000', '2500', '5000','7500','10000','12500','15000','17500','20000'],
+                    rotate: 85,
+                    multiline: false
                 }
+
             },
             y: {
+                max: 300,
                 label: data2["layer-y"]
             }
+    
     },
     });
-
-    setTimeout(function () {
-    barchart.load({
-        columns: [
-            ['data3', 130, -150, 200, 300, -200, 100]
-        ]
-    });
-    }, 1000);
 
 });
 
 
-var barchart2 = c3.generate({
+$.getJSON('http://34.242.186.183:3031/plotA4', function(data4) {
+    //data is the JSON string
+    //alert(data4["values"][0][0])
+    //alert(data4["values"][0][1])
+    var modData = [];
+    data4["values"][0].forEach(function(d) {
+        //alert(d)
+        modData.push(d);
+      });
+
+    var results = [data4["layer-y"]];
+    data4["values"][1].forEach(function(d) {
+        results.push(d);
+      });
+
+    var barchart2 = c3.generate({
     bindto: '#barchart2',
     data: {
         columns: [
-            ['data1', 30, 200, 100, 400, 150, 250],
-            ['data2', 130, 100, 140, 200, 150, 50]
+            results
+            //data4["values"][1][0], data4["values"][1][1], data4["values"][1][2]]
         ],
         type: 'bar'
     },
     bar: {
         width: {
-            ratio: 0.5 // this makes bar width 50% of length between ticks
+            ratio: 0.8 // this makes bar width 50% of length between ticks
         }
         // or
         //width: 100 // this makes bar width 100px
-    }
+    },
+    axis: {
+            x: {
+                label: data4["layer-x"],
+                type: 'category',
+                categories: modData,
+                tick: {
+                    rotate: 85,
+                    multiline: false
+                }
+            },
+            y: {
+                max: 20,
+                label: data4["layer-y"]
+            }
+    },
+
+    color: {
+        //ff9896
+        pattern: ['#98df8a', '#c49c94', '#e377c2', '#f7b6d2', '#7f7f7f', '#c7c7c7', '#bcbd22', '#dbdb8d', '#17becf', '#9edae5']
+    },
 });
-
-setTimeout(function () {
-    barchart2.load({
-        columns: [
-            ['data3', 130, -150, 200, 300, -200, 100]
-        ]
-    });
-}, 1000);
-
+});
 
 var area_chart = c3.generate({
     bindto: '#area_chart',
     data: {
         columns: [
             ['data1', 300, 350, 300, 0, 0, 0],
-            ['data2', 130, 100, 140, 200, 150, 50]
         ],
         types: {
-            data1: 'area',
-            data2: 'area-spline'
+            data1: 'area-spline'
         }
+    }
+});
+
+
+
+var gauge = c3.generate({
+    bindto: '#gauge',
+    data: {
+        columns: [
+            ['data', 91.4]
+        ],
+        type: 'gauge',
+        onclick: function (d, i) { console.log("onclick", d, i); },
+        onmouseover: function (d, i) { console.log("onmouseover", d, i); },
+        onmouseout: function (d, i) { console.log("onmouseout", d, i); }
+    },
+    gauge: {
+//        label: {
+//            format: function(value, ratio) {
+//                return value;
+//            },
+//            show: false // to turn off the min/max labels.
+//        },
+//    min: 0, // 0 is default, //can handle negative min e.g. vacuum / voltage / current flow / rate of change
+//    max: 100, // 100 is default
+//    units: ' %',
+//    width: 39 // for adjusting arc thickness
+    },
+    color: {
+        pattern: ['#FF0000', '#F97600', '#F6C600', '#60B044'], // the three color levels for the percentage values.
+        threshold: {
+//            unit: 'value', // percentage is default
+//            max: 200, // 100 is default
+            values: [30, 60, 90, 100]
+        }
+    },
+    size: {
+        height: 120,
+        width: 250
+    }
+});
+
+
+
+var gauge2 = c3.generate({
+    bindto: '#gauge2',
+    data: {
+        columns: [
+            ['data', 67.8]
+        ],
+        type: 'gauge',
+        onclick: function (d, i) { console.log("onclick", d, i); },
+        onmouseover: function (d, i) { console.log("onmouseover", d, i); },
+        onmouseout: function (d, i) { console.log("onmouseout", d, i); }
+    },
+    gauge: {
+//        label: {
+//            format: function(value, ratio) {
+//                return value;
+//            },
+//            show: false // to turn off the min/max labels.
+//        },
+//    min: 0, // 0 is default, //can handle negative min e.g. vacuum / voltage / current flow / rate of change
+//    max: 100, // 100 is default
+//    units: ' %',
+//    width: 39 // for adjusting arc thickness
+    },
+    color: {
+        pattern: ['#FF0000', '#F97600', '#F6C600', '#60B044'], // the three color levels for the percentage values.
+        threshold: {
+//            unit: 'value', // percentage is default
+//            max: 200, // 100 is default
+            values: [30, 60, 90, 100]
+        }
+    },
+    size: {
+        height: 120,
+        width: 250
     }
 });
