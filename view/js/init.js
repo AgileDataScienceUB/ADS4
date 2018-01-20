@@ -1,7 +1,7 @@
 (function($){
   $(function(){
   	$("#plots").hide()
-	//$("#plots2").hide();
+	$("#plots2").hide();
 
     $('.button-collapse').sideNav();
     $('.parallax').parallax();
@@ -24,11 +24,6 @@
 
 })(jQuery); // end of jQuery name space
 
-/*
-  function(id) {
-    return 'a[href="#' + id + '"]';
-  }
-  */
 
 function check(form) { /*function to check userid & password*/
 	/*the following code checkes whether the entered userid and password are matching*/
