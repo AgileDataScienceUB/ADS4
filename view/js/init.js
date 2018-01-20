@@ -1,7 +1,7 @@
 (function($){
   $(function(){
   	$("#plots").hide()
-	$("#plots2").hide();
+	//$("#plots2").hide();
 
     $('.button-collapse').sideNav();
     $('.parallax').parallax();
@@ -87,6 +87,7 @@ $("#submitbutton").on("click", function(){
 
 		$.ajax(settings).done(function(response) {
 			console.log(response);
+			call_plotsA();
 			$("#loader").hide();
 			$("#submitbutton").removeAttr('disabled');
 			$("#plots").show();
@@ -141,6 +142,7 @@ $("#prediction_button").on("click", function(){
 		$.ajax(settings_predict).done(function (response_predict) {
 			console.log(response_predict);
 			//alert("OK!!!")
+			call_plotsB();
 			$("#loader2").hide();
 			$("#prediction_button").removeAttr('disabled');
 			$("#plots2").show();
