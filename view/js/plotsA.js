@@ -213,11 +213,11 @@ function call_plotsA(){
             threshold: {
                 values: [30, 60, 90, 100]
             }
-        },/*
+        },
         size: {
-            height: 300,
-            width: 100
-        }*/
+            height: 200,
+            width: 300
+        }
     });
 
 
@@ -239,11 +239,11 @@ function call_plotsA(){
                 values: [30, 60, 90, 100]
             }
         },
-        /*
+        
         size: {
-            height: 300,
-            width: 100
-        }*/
+            height: 200,
+            width: 300
+        }
     });
     //});
 }
