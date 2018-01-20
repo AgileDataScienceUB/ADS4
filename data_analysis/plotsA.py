@@ -18,12 +18,12 @@ def plotA1(df):
     
     title="Employees Ages"
 
-    layersX=["Young(<30)", "Medium(30-50)","Old(>50)"]
+    layersX=["Young(<30)", "Middle age(30-50)","Old(>50)"]
     ages=np.empty(3)
     n=df.shape[0]
-    ages[0]=sum(df[age_lavel]<=30)/n
-    ages[1]=sum(df[age_lavel]<=50)/n -ages[0]
-    ages[2]=sum(df[age_lavel]>50)/n
+    ages[0]=sum(df[age_lavel]<=30)*100/n
+    ages[1]=sum(df[age_lavel]<=50)*100/n -ages[0]
+    ages[2]=sum(df[age_lavel]>50)*100/n
     dict = {"plot-name": title}
     dict["values"]=[layersX,ages]
     return(dict)
