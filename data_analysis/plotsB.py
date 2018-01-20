@@ -66,7 +66,7 @@ def plotB3(df,pred):
     age_lavel= "Age"
     ##!!
     
-    title="Probability of leaving respect age"
+    title="Probability of leaving respect age group"
     layerX= "Age group"
     layerY= "Percentatge of employees with prediction higher than 80%"
     layersX=["Young(<30)", "Medium(30-50)","Old(>50)"]
@@ -78,15 +78,15 @@ def plotB3(df,pred):
     
     ind= ages<30
     n=sum(ind); x=sum(pred[ind]>0.8) 
-    y[0]=x/n
+    y[0]=100*x/n
     
     ind= (ages>30) & (ages<50)
     n=sum(ind); x=sum(pred[ind]>0.8) 
-    y[1]=x/n
+    y[1]=100*x/n
     
     ind= ages>50
     n=sum(ind); x=sum(pred[ind]>0.8) 
-    y[2]=x/n
+    y[2]=100*x/n
 
     dict["values"]=[layersX,y.tolist()]
     return(dict)
@@ -116,7 +116,7 @@ def plotB5(df,pred):
     LOS_lavel= "YearsAtCompany"
     ##!!
     
-    title="Probability of leaving respect age group"
+    title="Probability of leaving vs lenght of service"
     layerX= "Lenght of service (years)"
     layerY= "Probability of leaving"
    
