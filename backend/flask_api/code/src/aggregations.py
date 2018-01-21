@@ -17,19 +17,18 @@ def plotA1(df):
     "Returns path of a txt file with info about a Pie Plot"
     "First row contains title, then each line contains a layer and a percentage of a Pie Plot"
 
-    print df.head()
     age_lavel="Age" ## lavel with feature name of ages. it may be different depending on dataset!!
 
     title="Employees Ages"
 
-    layersX=["Young(<30)", "Medium(30-50)","Old(>50)"]
+    layersX=["Young(<30)", "Middle age(30-50)","Old(>50)"]
     ages=np.empty(3)
     n=df.shape[0]
-    ages[0]=sum(df[age_lavel]<=30)/n
-    ages[1]=sum(df[age_lavel]<=50)/n -ages[0]
-    ages[2]=sum(df[age_lavel]>50)/n
+    ages[0]=sum(df[age_lavel]<=30)*100/n
+    ages[1]=sum(df[age_lavel]<=50)*100/n -ages[0]
+    ages[2]=sum(df[age_lavel]>50)*100/n
     dict = {"plot-name": title}
-    dict["values"]=[layersX,ages.tolist()]
+    dict["values"]=[layersX,ages]
     return(dict)
 
 def plotA2(df):
@@ -52,22 +51,38 @@ def plotA2(df):
     dict["values"]=[x.tolist(),y.tolist()]
     return(dict)
 
-def plotA3(df):
-    "Returns path of a txt file with info about Scatter plot. "
-    "First row contains strings with title and layers X and Y(seperated by comas). Then each row is a point (x,y) of a scatter plot"
+def plotB3(df,pred):
+    "Returns path of a txt file with info about Column plot. "
+    "First row contains strings with title and layers X and Y(seperated by comas)."
+    "Then each row contains a string with the name of the column and its columns lenght y value"
 
-    salary_lavel= "MonthlyIncome" ##!!
-    lenght_service_lavel="YearsAtCompany"
+    ##!!
+    age_lavel= "Age"
+    ##!!
 
-    n=df.shape[0]
-    title= "Salary vs lenght of service"
-    layerX= "Salary"
-    layerY= "Lenght of service"
-    x=df[salary_lavel].values
-    y=df[lenght_service_lavel].values
+    title="Probability of leaving respect age group"
+    layerX= "Age group"
+    layerY= "Percentatge of employees with prediction higher than 80%"
+    layersX=["Young(<30)", "Medium(30-50)","Old(>50)"]
+
     dict = {"plot-name": title}
-    dict["layer-x"]=layerX; dict["layer-y"]=layerY;
-    dict["values"]=[x.tolist(),y.tolist()]
+    dict["layer-x"]=layerX; dict["layer-y"]=layerY
+    ages=df[age_lavel].values
+    y=np.empty(3)
+
+    ind= ages<30
+    n=sum(ind); x=sum(pred[ind]>0.8)
+    y[0]=100*x/n
+
+    ind= (ages>30) & (ages<50)
+    n=sum(ind); x=sum(pred[ind]>0.8)
+    y[1]=100*x/n
+
+    ind= ages>50
+    n=sum(ind); x=sum(pred[ind]>0.8)
+    y[2]=100*x/n
+
+    dict["values"]=[layersX,y.tolist()]
     return(dict)
 
 def plotA4(df):
@@ -229,3 +244,4 @@ def plotB5(df,pred):
             Y.append(y)
     dict["values"]=[X,Y]
     return(dict)
+
