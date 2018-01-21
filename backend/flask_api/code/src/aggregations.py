@@ -95,7 +95,7 @@ def plotA4(df):
     dict["values"]=[Ro,Y]
     return(dict)
 
-def plotA5(dict_A5):
+def plotA5(dict_A5, valid_metrics):
     "Returns path of a txt file with info about Line plot."
     "Draws roc curve for the given model. "
 
@@ -114,6 +114,8 @@ def plotA5(dict_A5):
         else:
             tpr = item["val"]
     dict["values"] = [tpr, fpr]
+    dict["accuracy"] = valid_metrics["accuracy"]
+    dict["roc_auc"] = valid_metrics["roc_auc"]
 
     return dict
 

@@ -129,7 +129,8 @@ def service_plotA4():
 def serivce_plotA5():
     application.logger.debug("PlotA5 start")
     dict_A5 = download_object("dict_A5.obj")
-    response = jsonify(plotA5(dict_A5))
+    valid_metrics = download_object("valid_metrics.obj")
+    response = jsonify(plotA5(dict_A5, valid_metrics))
 
     # Managing response CORS
     response.headers.add('Access-Control-Allow-Methods', 'POST, GET, OPTIONS, DELETE, PUT')
