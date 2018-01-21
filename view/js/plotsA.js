@@ -1,6 +1,6 @@
 function call_plotsA(){
 
-    $.getJSON('http://localhost:3031/plotA1', function(data1) {
+    $.getJSON('http://34.242.186.183:3031/plotA1', function(data1) {
     //alert(data1["values"][0][0])
     var pie = c3.generate({
         bindto: '#pie',
@@ -20,7 +20,7 @@ function call_plotsA(){
 
     });
 
-    $.getJSON('http://localhost:3031/plotA2', function(data2) {
+    $.getJSON('http://34.242.186.183:3031/plotA2', function(data2) {
     //data is the JSON string
     //alert(data2["values"][0])
     //alert(data2["values"][1])
@@ -77,7 +77,7 @@ function call_plotsA(){
 
     });
 
-    $.getJSON('http://localhost:3031/plotA3', function(data3) {
+    $.getJSON('http://34.242.186.183:3031/plotA3', function(data3) {
     //data is the JSON string
     //alert(data3["values"][0])
     //alert(data3["values"][1])
@@ -125,7 +125,7 @@ function call_plotsA(){
     });
 
 
-    $.getJSON('http://localhost:3031/plotA4', function(data4) {
+    $.getJSON('http://34.242.186.183:3031/plotA4', function(data4) {
         //data is the JSON string
         //alert(data4["values"][0][0])
         //alert(data4["values"][0][1])
@@ -181,63 +181,43 @@ function call_plotsA(){
     });
 
 
-    $.getJSON('http://localhost:3031/plotA5', function(data5) {
-
-        var results = [data5["layer-x"]];
-        var abcisse = [data5["layer-y"]];
-
-        data5["values"][1].forEach(function(d) {
-            results.push(d);
-          });
-
-        data5["values"][0].forEach(function(d) {
-            abcisse.push(d);
-          });
-        var area_chart = c3.generate({
-            bindto: '#area_chart',
-            data: {
-                x: data5['layer-y'],
-                columns: [
-                    abcisse,
-                    results
-                ],
-                type: 'area'
-            },
-            legend: {
-                show: false
-            },
-            axis: {
-                x: {label: data5['layer-y'],
-                    show: false
-                },
-                y: {
-                    label: data5['layer-x']
-                }
+    //$.getJSON('http://34.242.186.183:3031/plotA5', function(data4) {
+    var area_chart = c3.generate({
+        bindto: '#area_chart',
+        data: {
+            columns: [
+                ['data1', 300, 350, 300, 0, 0, 0],
+            ],
+            types: {
+                data1: 'area-spline'
             }
-        });
+        },
+        legend: {
+            show: false
+        },
+    });
 
-        var gauge = c3.generate({
-            bindto: '#gauge',
-            data: {
-                columns: [
-                    ['data', 91.4]
-                ],
-                type: 'gauge',
-                onclick: function (d, i) { console.log("onclick", d, i); },
-                onmouseover: function (d, i) { console.log("onmouseover", d, i); },
-                onmouseout: function (d, i) { console.log("onmouseout", d, i); }
-            },
-            color: {
-                pattern: ['#FF0000', '#F97600', '#F6C600', '#60B044'], // the three color levels for the percentage values.
-                threshold: {
-                    values: [30, 60, 90, 100]
-                }
-            },
-            size: {
-                height: 200,
-                width: 300
+    var gauge = c3.generate({
+        bindto: '#gauge',
+        data: {
+            columns: [
+                ['data', 91.4]
+            ],
+            type: 'gauge',
+            onclick: function (d, i) { console.log("onclick", d, i); },
+            onmouseover: function (d, i) { console.log("onmouseover", d, i); },
+            onmouseout: function (d, i) { console.log("onmouseout", d, i); }
+        },
+        color: {
+            pattern: ['#FF0000', '#F97600', '#F6C600', '#60B044'], // the three color levels for the percentage values.
+            threshold: {
+                values: [30, 60, 90, 100]
             }
-        });
+        },
+        size: {
+            height: 200,
+            width: 300
+        }
     });
 
 

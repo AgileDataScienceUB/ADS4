@@ -68,7 +68,7 @@ $("#submitbutton").on("click", function(){
 		var settings = {
 			"async": true,
 			"crossDomain": true,
-			"url": "http://localhost:3031/create-predictor",
+			"url": "http://34.242.186.183:3031/create-predictor",
 			"method": "POST",
 			"headers": {
 						"cache-control": "no-cache",
@@ -121,7 +121,7 @@ $("#prediction_button").on("click", function(){
 		var settings_predict = {
 				"async": true,
 				"crossDomain": true,
-				"url": "http://localhost:3031/predict",
+				"url": "http://34.242.186.183:3031/predict",
 				"method": "POST",
 				"headers": {
 				"cache-control": "no-cache",
