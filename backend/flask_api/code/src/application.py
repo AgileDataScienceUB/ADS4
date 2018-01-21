@@ -300,11 +300,13 @@ def predict():
     # Save predictions
     upload_object(score, "predict_score.obj")
 
-    response = jsonify({'Result': 'Model successfully predicted'})
-    response.headers.add('Access-Control-Allow-Methods', 'POST, GET, OPTIONS, DELETE, PUT')
-    response.headers.add('Access-Control-Max-Age', '5000')
-    response.headers.add('Access-Control-Allow-Headers', 'x-requested-with, Content-Type, Accept-Encoding, Accept-Language, Cookie, Referer')
-    response.headers.add('Access-Control-Allow-Credentials', 'true')
+    csv = str(employee_id) + ',score\n'
+    for index, row in result.iterrows():
+        csv += str(row[employee_id]) + "," + str(row['score']) + "\n"
+    response = make_response(csv)
+    cd = 'attachment; filename=mycsv.csv'
+    response.headers['Content-Disposition'] = cd 
+    response.mimetype='text/csv'
     return response
 
 if __name__ == '__main__':
