@@ -91,6 +91,31 @@ def plotA4(df):
     dict["values"]=[Ro,Y]
     return(dict)
 
+def plotA5(dict_A5, valid_metrics):
+    "Returns path of a txt file with info about Line plot."
+    "Draws roc curve for the given model. "
+
+    print "DICT A5", dict_A5
+    title="Receiver Operating Characteristic curve"
+    layerX= "False positive rate"
+    layerY= "True positive rate"
+    dict = {"plot-name": title}
+    dict["layer-x"] = layerX
+    dict["layer-y"] = layerY
+
+    fpr_tpr = dict_A5["results"]
+    for item in fpr_tpr:
+        if item["param"] == "False positive rate":
+            fpr = item["val"]
+        else:
+            tpr = item["val"]
+    dict["values"] = [tpr, fpr]
+    dict["accuracy"] = valid_metrics["accuracy"]
+    dict["roc_auc"] = valid_metrics["roc_auc"]
+
+    return dict
+
+
 def generate_plotsB_files(test_data_path,pred):
     "Generates dict for each B plot. "
 
