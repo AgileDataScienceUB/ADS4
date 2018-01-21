@@ -2,7 +2,7 @@
 function call_plotsB(){
 // SCATTER 1
 
-    $.getJSON('http://34.242.186.183:3031/plotB1', function(data1) {
+    $.getJSON('http://localhost:3031/plotB1', function(data1) {
         //data is the JSON string
         /*alert(data1["values"][0])
         alert(data1["values"][1])
@@ -59,7 +59,7 @@ function call_plotsB(){
 
 
 
-    $.getJSON('http://34.242.186.183:3031/plotB2', function(data2) {
+    $.getJSON('http://localhost:3031/plotB2', function(data2) {
         //data is the JSON string
         var modData = [];
         data2["values"][0].forEach(function(d) {
@@ -111,7 +111,7 @@ function call_plotsB(){
 
     });
 
-    $.getJSON('http://34.242.186.183:3031/plotB3', function(data3) {
+    $.getJSON('http://localhost:3031/plotB3', function(data3) {
         var modData33 = [];
         data3["values"][0].forEach(function(d) {
             //alert(d)
@@ -157,7 +157,7 @@ function call_plotsB(){
 
 
 
-    $.getJSON('http://34.242.186.183:3031/plotB4', function(data4) {
+    $.getJSON('http://localhost:3031/plotB4', function(data4) {
         //data is the JSON string
         var modData = ["num"];
         data4["values"][0].forEach(function(d) {
@@ -212,7 +212,7 @@ function call_plotsB(){
 
     });
 
-    $.getJSON('http://34.242.186.183:3031/plotB5', function(data5) {
+    $.getJSON('http://localhost:3031/plotB5', function(data5) {
 
         var results = ["num"];
             data5["values"][1].forEach(function(d) {

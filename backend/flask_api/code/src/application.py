@@ -14,7 +14,7 @@ from datetime import timedelta
 from flask import make_response, request, current_app
 from functools import update_wrapper
 from flask_cors import CORS, cross_origin
-from aggregations import plotA1,plotA2,plotA3,plotA4,plotB1,plotB2,plotB3,plotB4,plotB5
+from aggregations import plotA1,plotA2,plotA3,plotA4,plotA5,plotB1,plotB2,plotB3,plotB4,plotB5
 
 UPLOAD_FOLDER = '/data'
 ALLOWED_EXTENSIONS = ['csv']
@@ -123,6 +123,21 @@ def service_plotA4():
     response.headers.add('Access-Control-Allow-Headers', 'x-requested-with, Content-Type, Accept-Encoding, Accept-Language, Cookie, Referer')
     response.headers.add('Access-Control-Allow-Credentials', 'true')
 
+    return response
+@application.route('/plotA5', methods=['GET'])
+@cross_origin()
+def serivce_plotA5():
+    application.logger.debug("PlotA5 start")
+    dict_A5 = download_object("dict_A5.obj")
+    response = jsonify(plotA5(dict_A5))
+
+    # Managing response CORS
+    response.headers.add('Access-Control-Allow-Methods', 'POST, GET, OPTIONS, DELETE, PUT')
+    response.headers.add('Access-Control-Max-Age', '5000')
+    response.headers.add('Access-Control-Allow-Headers', 'x-requested-with, Content-Type, Accept-Encoding, Accept-Language, Cookie, Referer')
+    response.headers.add('Access-Control-Allow-Credentials', 'true')
+
+    application.logger.debug("PlotA5 finish")
     return response
 
 @application.route('/plotB1', methods=['GET'])
@@ -237,6 +252,7 @@ def create_predictor():
     upload_object(clf, "clf.obj")
     upload_object(scaler, "scaler.obj")
     upload_object(valid_metrics, "valid_metrics.obj")
+    upload_object(dict_A5, "dict_A5.obj")
 
     # Response body
     response = jsonify({'Result': 'Model successfully trained'})
