@@ -25,7 +25,7 @@ def plotA1(df):
     ages[1]=sum(df[age_lavel]<=50)*100/n -ages[0]
     ages[2]=sum(df[age_lavel]>50)*100/n
     dict = {"plot-name": title}
-    dict["values"]=[layersX,ages.tolist]
+    dict["values"]=[layersX,ages.tolist()]
     return(dict)
 
 def plotA2(df):
