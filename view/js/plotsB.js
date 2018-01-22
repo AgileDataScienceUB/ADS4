@@ -234,7 +234,7 @@ function call_plotsB(){
                     results
                 ],
                 types: {
-                    x: 'area-spline'
+                    num: 'area-spline'
                 },
             },
          

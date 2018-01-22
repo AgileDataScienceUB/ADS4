@@ -182,19 +182,45 @@ function call_plotsA(){
 
 
     $.getJSON('http://34.242.186.183:3031/plotA5', function(data5) {
-        alert(data5)
-        alert(data5["values"][0])
-        alert(data5["values"][1])
-        alert(data5["values"][2])
+    
+
+        var modData = ['x'];
+            data5["values"][1].forEach(function(d) {
+            modData.push(d);
+        });
+
+        var res = ['res'];
+        //res.push(0);
+            data5["values"][0].forEach(function(d) {
+            res.push(d);
+        });
+
+        var res_random = ['random'];
+
         var area_chart = c3.generate({
             bindto: '#area_chart',
             data: {
+                x: 'x',
                 columns: [
-                    ['data1', 300, 350, 300, 0, 0, 0],
+                    modData,
+                    res
+                    //['random', 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1],
                 ],
                 types: {
-                    data1: 'area-spline'
+                    res: 'area',
+                    random: 'line'
                 }
+            },
+            axis: {
+                x: {
+                    tick: {
+                        fit: false,
+                        values: ['0.1','0.2','0.3','0.4','0.5','0.6','0.7','0.8','0.9','1']
+                    }
+                },
+                y: {
+                    max: 1,
+                },
             },
             legend: {
                 show: false
@@ -205,7 +231,7 @@ function call_plotsA(){
             bindto: '#gauge',
             data: {
                 columns: [
-                    ['data', 91.4]
+                    ['ROC_AUC_SCORE', data5["roc_auc"]*100]
                 ],
                 type: 'gauge',
                 onclick: function (d, i) { console.log("onclick", d, i); },
@@ -215,7 +241,7 @@ function call_plotsA(){
             color: {
                 pattern: ['#FF0000', '#F97600', '#F6C600', '#60B044'], // the three color levels for the percentage values.
                 threshold: {
-                    values: [30, 60, 90, 100]
+                    values: [30, 60, 80, 100]
                 }
             },
             size: {
@@ -230,7 +256,7 @@ function call_plotsA(){
             bindto: '#gauge2',
             data: {
                 columns: [
-                    ['data', 67.8]
+                    ['Accuracy', data5["accuracy"]*100]
                 ],
                 type: 'gauge',
                 onclick: function (d, i) { console.log("onclick", d, i); },
@@ -240,7 +266,7 @@ function call_plotsA(){
             color: {
                 pattern: ['#FF0000', '#F97600', '#F6C600', '#60B044'], // the three color levels for the percentage values.
                 threshold: {
-                    values: [30, 60, 90, 100]
+                    values: [30, 60, 80, 100]
                 }
             },
             
