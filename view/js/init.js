@@ -136,7 +136,7 @@ $("#prediction_button").on("click", function(){
 
 		$.ajax(settings_predict).done(function (response_predict) {
 			console.log(response_predict);
-			//alert("OK!!!")
+			CSV = response_predict
 			call_plotsB();
 			$("#loader2").hide();
 			$("#prediction_button").removeAttr('disabled');
@@ -149,8 +149,17 @@ $("#prediction_button").on("click", function(){
 });
 
 $("#download_csv").on("click", function(){
-	alert("Not implemented yet!")
+	function downloadFile(fileName, urlData) {
 
+	    var aLink = document.createElement('a');
+	    aLink.download = fileName;
+	    aLink.href = urlData;
+
+	    var event = new MouseEvent('click');
+	    aLink.dispatchEvent(event);
+	}
+
+	downloadFile('prediction.csv', 'data:text/csv;charset=UTF-8,' + encodeURIComponent(CSV));
 });
 
 

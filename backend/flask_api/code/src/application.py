@@ -126,7 +126,7 @@ def service_plotA4():
     return response
 @application.route('/plotA5', methods=['GET'])
 @cross_origin()
-def serivce_plotA5():
+def service_plotA5():
     application.logger.debug("PlotA5 start")
     dict_A5 = download_object("dict_A5.obj")
     valid_metrics = download_object("valid_metrics.obj")

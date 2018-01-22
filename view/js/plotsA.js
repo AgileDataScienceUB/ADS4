@@ -181,70 +181,74 @@ function call_plotsA(){
     });
 
 
-    //$.getJSON('http://34.242.186.183:3031/plotA5', function(data4) {
-    var area_chart = c3.generate({
-        bindto: '#area_chart',
-        data: {
-            columns: [
-                ['data1', 300, 350, 300, 0, 0, 0],
-            ],
-            types: {
-                data1: 'area-spline'
+    $.getJSON('http://34.242.186.183:3031/plotA5', function(data5) {
+        alert(data5)
+        alert(data5["values"][0])
+        alert(data5["values"][1])
+        alert(data5["values"][2])
+        var area_chart = c3.generate({
+            bindto: '#area_chart',
+            data: {
+                columns: [
+                    ['data1', 300, 350, 300, 0, 0, 0],
+                ],
+                types: {
+                    data1: 'area-spline'
+                }
+            },
+            legend: {
+                show: false
+            },
+        });
+
+        var gauge = c3.generate({
+            bindto: '#gauge',
+            data: {
+                columns: [
+                    ['data', 91.4]
+                ],
+                type: 'gauge',
+                onclick: function (d, i) { console.log("onclick", d, i); },
+                onmouseover: function (d, i) { console.log("onmouseover", d, i); },
+                onmouseout: function (d, i) { console.log("onmouseout", d, i); }
+            },
+            color: {
+                pattern: ['#FF0000', '#F97600', '#F6C600', '#60B044'], // the three color levels for the percentage values.
+                threshold: {
+                    values: [30, 60, 90, 100]
+                }
+            },
+            size: {
+                height: 200,
+                width: 300
             }
-        },
-        legend: {
-            show: false
-        },
-    });
+        });
 
-    var gauge = c3.generate({
-        bindto: '#gauge',
-        data: {
-            columns: [
-                ['data', 91.4]
-            ],
-            type: 'gauge',
-            onclick: function (d, i) { console.log("onclick", d, i); },
-            onmouseover: function (d, i) { console.log("onmouseover", d, i); },
-            onmouseout: function (d, i) { console.log("onmouseout", d, i); }
-        },
-        color: {
-            pattern: ['#FF0000', '#F97600', '#F6C600', '#60B044'], // the three color levels for the percentage values.
-            threshold: {
-                values: [30, 60, 90, 100]
+
+
+        var gauge2 = c3.generate({
+            bindto: '#gauge2',
+            data: {
+                columns: [
+                    ['data', 67.8]
+                ],
+                type: 'gauge',
+                onclick: function (d, i) { console.log("onclick", d, i); },
+                onmouseover: function (d, i) { console.log("onmouseover", d, i); },
+                onmouseout: function (d, i) { console.log("onmouseout", d, i); }
+            },
+            color: {
+                pattern: ['#FF0000', '#F97600', '#F6C600', '#60B044'], // the three color levels for the percentage values.
+                threshold: {
+                    values: [30, 60, 90, 100]
+                }
+            },
+            
+            size: {
+                height: 200,
+                width: 300
             }
-        },
-        size: {
-            height: 200,
-            width: 300
-        }
+        });
     });
-
-
-
-    var gauge2 = c3.generate({
-        bindto: '#gauge2',
-        data: {
-            columns: [
-                ['data', 67.8]
-            ],
-            type: 'gauge',
-            onclick: function (d, i) { console.log("onclick", d, i); },
-            onmouseover: function (d, i) { console.log("onmouseover", d, i); },
-            onmouseout: function (d, i) { console.log("onmouseout", d, i); }
-        },
-        color: {
-            pattern: ['#FF0000', '#F97600', '#F6C600', '#60B044'], // the three color levels for the percentage values.
-            threshold: {
-                values: [30, 60, 90, 100]
-            }
-        },
-        
-        size: {
-            height: 200,
-            width: 300
-        }
-    });
-    //});
 }
 
